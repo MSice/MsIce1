@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js1/jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #box{
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.6;
+            display: none;
+            background-color: #797979;
+        }
+
+        #box4{
+            width: 400px;
+            height: 260px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left:-200px;
+            margin-top: -130px;
+            background-color: #fff;
+            display: none;
+        }
+        #box1{
+            width: 370px;
+            height: 40px;
+            background-color: #000;
+            color: white;
+            line-height: 40px;
+            padding: 0 15px ;
+        }
+        h3{
+            float: left;
+        }
+        li{
+            float: right;
+            color: white;
+        }
+    
+    </style>
+</head>
+<body>
+    
+    <button id="btn" style="position: fixed; top: 0;left: 0;">登录</button>
+    <div id="box">
+    </div>
+    <div id="box4">
+        <div id="box1"><h3>登 录</h3><li>×</li></div>
+        <div id="box2">账号</div>
+        <div id="box3">密码</div>
+    </div>
+    <div>
+        
+    </div>
+    <script>
+        var sum=true;
+        $.fn.extend({
+             CsDisplay:function() {
+                $(this).css("display","block");
+            }
+        })
+        $("#btn").on("click",function () {
+            $("#box").CsDisplay();
+            $("#box4").CsDisplay();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .d1 {
+            width: 400px;
+            height: 600px;
+            background-color: grey;
+            margin: 0 auto;
+        }
+
+        .d1 .d1-btn {
+            margin-top: 20px;
+        }
+
+        .d1 .d1-btn,
+        .d1 .d1-text {
+            width: 200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">
+        <span id="text-1"> 10
+        </span>
+        <div class="d1-btn">
+            <button id="btn-1" class="btn" onclick="start(num)" value="开始">开始</button>
+        </div>
+    </div>
+    <script>
+        var num = 10;
+        var s_Btn = document.getElementById("btn-1");
+        var s_div = document.getElementById("text-1");
+        function start(num) {
+            s_Btn.innerText = "暂停";
+            var time1=setInterval(  function(num){
+                num -=1;
+            s_div.innerHTML = num;
+        },1000);
+            // var timer = setInterval(time(num), 1000);
+        }
+    </script>
+</body>
+
+</html>

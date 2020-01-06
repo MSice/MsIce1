@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //100  给10 没人不低于5块
+        //document.write(Math.floor(Math.random() * 101))
+        var sum = 50;
+        var sum1 = 51
+        var sum2 = 0;
+        var sum3 = 0;
+        i=0;
+        // document.write(Math.floor(Math.random() * 51))
+        // 5000
+        while (sum1!= 1) {
+            i++;
+                sum2 = Math.floor(Math.random() * sum1);
+                console.log(sum2 + 5+"***"+i);
+                sum3=sum3+sum2;
+                sum1 = sum1 -sum2;
+                console.log(sum1);
+        }
+    </script>
+</body>
+
+</html>

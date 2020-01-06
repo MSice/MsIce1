@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="color:rgb(19, 248, 11);" id="myDiv">√ ×</div>
+    <button id="send">请求</button>
+    <script>
+        //AJAX原理
+        var btn = document.getElementById("send");
+        btn.onclick = function () {
+            var xmlhttp;//创建一个XMLHttpRequest对象
+            if (window.XMLHttpRequest) {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //向服务器发送请求
+            xmlhttp.open("GET", "https://api.myjson.com/bins/vay3g", true);//请求类型，请求地址，bool类型判断是否异步
+            xmlhttp.send();
+            //响应返回结果
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {//AJAX请求有5种状态  0~5  
+                    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                }
+            }
+
+        }
+
+// 属性	描述
+// onreadystatechange	存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+// 存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+// 0: 请求未初始化
+// 1: 服务器连接已建立
+// 2: 请求已接收
+// 3: 请求处理中
+// 4: 请求已完成，且响应已就绪
+
+// readyState	
+// status	200: "OK"
+// 404: 未找        
+    </script>
+</body>
+
+</html>

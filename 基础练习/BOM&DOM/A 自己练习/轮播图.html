@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./js/lun.js">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            display: block;
+            width: 25px;
+            height: 25px;
+            background-color: #000000;
+            border-radius: 50%;
+            /* float: right; */
+        }
+        li:nth-child(1){
+            position: absolute;
+            bottom: 020px;
+            right: 20px;
+        }
+        li:nth-child(2){
+            position: absolute;
+            bottom: 020px;
+            right: 65px;
+        }
+        li:nth-child(3){
+            position: absolute;
+            bottom: 020px;
+            right: 110px;
+        }
+        .box {
+            width: 632px;
+            margin: 0 auto;
+        }
+
+        .image1 {
+            height: 342px;
+            background-image: url("./img/1.1.jpg");
+            background-repeat: no-repeat;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="image1">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var im1 = document.getElementsByClassName("image1")[0];
+        im1.onclick = function () {
+            im1.style.backgroundImage = "url(./img/1.2.jpg)";
+        }
+    </script>
+</body>
+
+</html>

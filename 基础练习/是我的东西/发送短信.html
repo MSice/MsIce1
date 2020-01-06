@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <!-- <a href="sms:1884503049?body=你好，我要预定！"data-role="button" data-theme="a">短信下单</a>  -->
+        <input  id="name" type="text">
+        <input  id="tel" type="button" value="输出">
+        <div id="div1">121212</div>
+        <a href="#">发送短信</a>
+    </form>
+    
+<script>
+    function doAction(){
+         var u = navigator.userAgent;
+         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+     //android终端
+         var name =document.getElementById('name');
+         var tel= document.getElementById('tel');
+         var div1=document.getElementById
+         tel.onclick=function(){
+             console.log(name.value);
+           document.getElementsByTagName('a')[0].href="sms://18845030490?body="+name.value;
+         }
+    
+        }
+        doAction();
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list"> 
+            <li data-href="http://www.4399.com">淘宝</li>
+            <li data-href="http://www.7k7k.com">百度</li>
+    </ul>
+    <ul>
+        <li>a</li>
+    </ul>
+    <script>
+        var alist =document.getElementById("list");
+        var ali=alist.getElementsByTagName("li");
+        ali[0].onclick=function(e){
+            console.log(this.dataset)//this是当前事件源（触发事件的东西）
+            window.location.href=this.dataset.href;
+            // window.location.href="http://www.4399.com";
+        }
+    </script>
+</body>
+</html>

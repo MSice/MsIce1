@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="box">0</div>
+    <button id="btn-1" onclick="star1(num)">开始</button>
+    <button id="btn-2" onclick="star(num)">设置</button>
+    <script>
+        var obox = document.getElementById("box");
+        // var obtn = document.getElementById("btn-1");
+        var num = 0;
+
+        function star() {
+            num = prompt("请输入倒计时时间");
+            obox.innerText=num;
+        }
+        function star1() {
+            obox.innerText=++num;
+        }
+    </script>
+</body>
+
+</html>

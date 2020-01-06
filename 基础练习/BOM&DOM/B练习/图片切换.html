@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .up {
+            width: 726px;
+            margin: 100px auto;
+            border: 1px solid #999;
+        }
+
+        .up .up-image img {
+            height: 440px;
+        }
+
+        .up .up-image{
+            width: 440px;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        .down-image {
+            float: left;
+            width: 220px;
+            padding: 10px;
+            border: 1px solid #999;
+            text-align: center;
+
+        }
+
+        .down-image img{
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="up">
+        <div class="up-image">
+            <img id="up-image1" src="./img/1.jpg" alt="">
+        </div>
+        <div class="down">
+            <div class="down-image">
+                <img src="./img/1.jpg" alt="">
+            </div>
+            <div class="down-image">
+                <img src="./img/2.jpg" alt="">
+            </div>
+            <div class="down-image">
+                <img src="./img/3.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        var odown=getElementsByClassName("down")[0].getElementsByTagName("img");
+        var oup=document.getElementById("up-image1");
+        for(var i=0;i<odown.length;i++){
+            odown[i].onmouseover=function(){
+        var thisSrc = this.getAttribute("src");
+        oup.setAttribute("src",thisSrc);
+      }
+    }
+
+    </script>
+</body>
+
+</html>

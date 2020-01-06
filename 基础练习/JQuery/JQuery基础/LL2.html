@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js1/jquery-3.4.1.js"></script>
+    <style>
+        /* li:nth-child(even){
+      color: red;
+    } */
+        li {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="checkbox">1
+        <input type="checkbox">2
+        <input type="checkbox">3
+        <input type="checkbox">4
+        <button id="btn1">全选</button>
+        <button id="btn2">全不选</button>
+        <button id="btn3">反选</button>
+    </div>
+    <script>
+        var inp = $("div input");
+        console.log(inp);
+        $("#btn1").click(function () {
+            for (var i = 0; i < inp.length; i++)
+                    $(inp[i]).prop("checked", true);
+        })
+        $("#btn2").click(function () {
+            for (var i = 0; i < inp.length; i++)
+                    $(inp[i]).prop("checked", false)
+        })
+        $("#btn3").click(function () {
+            for (var i = 0; i < inp.length; i++) {
+                if ($(inp[i]).prop("checked") == true)
+                    $(inp[i]).prop("checked", false)
+                else
+                    $(inp[i]).prop("checked", true);
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

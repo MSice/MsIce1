@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取dom</title>
+</head>
+
+<body>
+    <div>0</div>
+    <button id="btn" class="b1">add2</button>
+    <button class="b1">add</button>
+    <!-- <button>add1</button>
+    <button>add2</button> -->
+    <script>
+        // var sum = document.getElementsByTagName("button");//标签选择器获取dom
+        // var sum = document.getElementsByClassName("b1");
+        var sum = document.getElementById("btn");
+        var odiv = document.getElementsByTagName("div")[0];
+        var num = 0;
+        sum.onclick = function () {
+            odiv.innerText = ++num;
+
+        }
+        // console.log(sum)
+
+    </script>
+</body>
+
+</html>

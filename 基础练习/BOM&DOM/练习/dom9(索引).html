@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+    <script>
+        var ali = document.getElementsByTagName("li");
+        for (var i = 0; i < ali.length; i++) {
+            ali[i].i=i;//给ali[i]加了一个属性i i的值为当前循环的i值
+            ali[i].onmouseover = function () {
+                //  console.log(this.innerText);
+                console.log(this.i);//输出索引
+            }
+        }
+    </script>
+</body>
+
+</html>

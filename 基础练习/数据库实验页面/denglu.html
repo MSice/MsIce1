@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body{
+            background-color: #f5f5f5;
+        }
+        .box {
+            width: 1106px;
+            height: 586px;
+            margin: 0 auto;
+            /* border-bottom: 1px solid black; */
+            background-color: #f5f5f5;
+        }
+
+        .box h1 {
+            font-size: 65px;
+            font-family: "FZShuTi";
+            margin-left: 170px;
+        }
+
+        .box h1 span {
+            font-size: 90px;
+            margin-right: 15px;
+        }
+
+        .box .top {
+            width: 1108px;
+            height: 100px;
+            background-image: url("./img/4.png");
+            background-repeat: no-repeat;
+            background-position: right;
+            line-height: 100px;
+        }
+
+        .box .bottom {
+            width: 1102px;
+            height: 480px;
+            border: 3px solid #dedede;
+        }
+
+        .box .b-left {
+            width: 730px;
+            height: 480px;
+            background-image: url("./img/3.png");
+            background-size: cover;
+            float: left;
+        }
+
+        .box .b-right {
+            float: left;
+            width: 370px;
+            height: 480px;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+
+        .box .b-right .br-title {
+            font-family: "STHupo";
+            font-size: 30px;
+            margin-top: 65px;
+            margin-left: 30px;
+            width: 370px;
+            height: 50px;
+            /* background-color: red; */
+            line-height: 50px;
+        }
+
+        .box .b-right .br-input1,
+        .box .b-right .br-input2 {
+            margin-top: 35px;
+            width: 355px;
+            height: 50px;
+            font-size: 20px;
+            display: inline-block;
+            /* background-color: red; */
+            margin-left: 15px;
+        }
+
+        form {
+            width: 355px;
+            height: 255px;
+        }
+
+        .box .b-right .input1 {
+            height: 46px;
+            width: 285px;
+            font-size: 20px;
+        }
+
+        .box .b-right .btn .input2 {
+            float: left;
+            margin-top: 35px;
+            margin-left: 90px;
+            font-size: 18px;
+            width: 60px;
+            height: 40px;
+            background-size: cover;
+            background-color: rgba(245, 238, 238, 0.5);
+        }
+
+        .box .b-right .btn-bottom {
+            position: absolute;
+            top: 142px;
+            left: 80px;
+        }
+
+        .box .b-right #btn1 {
+            display: block;
+        }
+
+        .box .b-right .btn-bottom1 {
+            position: absolute;
+            top: 142px;
+            left: -80px;
+            display: none;
+        }
+    </style>
+    <meta http-equiv=”Expires” CONTENT=”0″>
+    <meta http-equiv=”Cache-Control” CONTENT=”no-cache”>
+    <meta http-equiv=”Pragma” CONTENT=”no-cache”>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <h1><span>奇 迹</span> 图 书 馆</h1>
+        </div>
+        <div class="bottom">
+            <div class="b-left">
+            </div>
+            <div class="b-right">
+                <div class="br-title">欢迎来到奇迹图书馆</div>
+                <!--javascript:void(0)  -->
+                <form
+                    action="file:///E:/weichuang/MsHot/MsIce1/20191013me/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E9%AA%8C%E9%A1%B5%E9%9D%A2/borrow.html"
+                    id="form1">
+                    <div class="br-input1">
+                        <span>账号:</span>
+                        <input type="text" placeholder="借阅卡ID" id="input1" class="input1">
+                    </div>
+                    <div class="br-input2">
+                        <span>密码:</span>
+                        <input type="text" placeholder="请输入密码" id="input2" class="input1">
+                    </div>
+
+                    <div class="btn">
+                        <input type="submit" class="input2" value="登录" id="btn1"></input></div>
+                    <div class="btn btn-bottom">
+                        <input type="submit" class="input2 btn-bottom1" value="管理" id="btn3"></input>
+                    </div>
+                </form>
+                <!-- <div class="br-input1">
+                    <span>账号:</span>
+                    <input type="text" placeholder="借阅卡ID">
+                </div>
+                <div class="br-input2">
+                    <span>密码:</span>
+                    <input type="text" placeholder="请输入密码">
+                </div> -->
+                <!-- <div class="btn">登录</div> -->
+                <div class="btn btn-bottom">
+                    <input type="submit" class="input2 btn-bottom" value="注册" id="btn2"></input>
+                </div>
+                <!-- <div class="btn"></div> -->
+            </div>
+        </div>
+    </div>
+    <script>
+        var reader_ID = document.getElementById("input1");//账号输入框
+        var reader_password = document.getElementById("input2");//密码框
+        var btn1 = document.getElementById("btn1");//登录按钮
+        var btn2 = document.getElementById("btn2");//注册按钮
+        var btn3 = document.getElementById("btn3");//管理
+        var form1 = document.getElementById("form1");//表单
+        // window.history.forward(1); window.history.pushState('forward', null, '#');
+        btn1.onclick = function () {
+        history.length=1;
+            if (reader_ID.value == "") {
+                if (reader_password.value == "G_guan_20175971") {
+                    btn3.style.display = "block";
+                    btn1.style.display = "none";
+                    form1.action = "file:///E:/weichuang/MsHot/MsIce1/20191013me/%E6%98%AF%E6%88%91%E7%9A%84%E4%B8%9C%E8%A5%BF/sheng_birthday_party.html";
+                    return false;
+                }
+                else {
+                    alert("账号不能为空")
+                    return false;
+                }
+            }
+            if (reader_password.value == "") {
+                alert("密码不能为空")
+                return false;
+            }
+        }
+        btn2.onclick = function () {
+            window.location.href = "file:///E:/weichuang/MsHot/MsIce1/20191013me/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E9%AA%8C%E9%A1%B5%E9%9D%A2/zhuce.html";
+        }
+        console.log(history);
+        window.onhashchange=function(e){
+           console.log(e)
+        }
+    </script>
+</body>
+
+</html>

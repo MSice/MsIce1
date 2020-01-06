@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../JQuery/js1/jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-size: 14px;
+            color: white;
+            font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+            background-color: rgba(143, 128, 97, 0.3);
+        }
+
+        .box {
+            width: 1710px;
+            height: 700px;
+            margin: 0 auto 0;
+            /*100px top*/
+            background-image: url("./img/8.png");
+            background-size: contain;
+            position: relative;
+        }
+
+        /*left---------------star*/
+        .box .left {
+            padding: 25px 0 0;
+            width: 200px;
+            height: 650px;
+            float: left;
+            /* background-color: rgba(148, 28, 7, 0.678); */
+        }
+
+        .box .left .l-top {
+            padding: 5px;
+            width: 190px;
+            height: 200px;
+            /* background-color: rgba(10, 209, 27, 0.678); */
+        }
+
+        .left .l-top .top-infor {
+            border-bottom: 1px solid black;
+            margin-top: 20px;
+            font-size: 20px;
+            width: 190px;
+            height: 40px;
+            /* background-color: rgba(220, 235, 221, 0.678); */
+        }
+
+        .left .l-bottom {
+            margin: 30px auto 0;
+            width: 180px;
+        }
+
+        .left .l-bottom input {
+            height: 50px;
+            width: 180px;
+            font-size: 30px;
+            font-weight: 2px;
+            font-family: "STXinwei";
+            border-radius: 4px;
+            background-color: rgba(220, 235, 221, 0.678);
+        }
+
+        /*left---------------end*/
+        /*right---------------star*/
+        .box .right {
+            position: absolute;
+            top: 40px;
+            left: 256px;
+            width: 1355px;
+            height: 625px;
+            /* background-color: rgba(148, 28, 7, 0.678); */
+        }
+
+        /*---------------图书信息------------*/
+        .r-infor {
+            display: block;
+            font-family: "SimHei";
+            font-size: 20px;
+        }
+
+        .r-infor .ri-top {
+            width: 1355px;
+            height: 50px;
+            border-radius: 0 30px 0 10px;
+            border: 1px solid rgba(193, 194, 201, 0.3);
+            /* padding: 10px 0; */
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        .r-infor .ri-top input {
+            width: 180px;
+            height: 50px;
+            font-size: 24px;
+            font-weight: 2px;
+            border: 2px solid rgba(147, 150, 168, 0.3);
+            border-radius: 4px;
+            font-family: "LiSu";
+            background-color: rgba(193, 194, 201, 0.3);
+        }
+
+        .r-infor .ri-bottom {
+            width: 1350px;
+            height: 560px;
+            margin: 0 auto;
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        /*---------------图书信息------------*/
+        /*---------------添加图书------------*/
+        .right .r-chenge {
+            display: none;
+        }
+
+        .right .r-chenge .rc-logo {
+            background-image: url("./img/logo2.png");
+            background-size: cover;
+            width: 350px;
+            height: 375px;
+            /* border: 2px solid black; */
+            position: absolute;
+            top: 55px;
+            left: 880px;
+        }
+
+        .right .r-chenge form {
+            position: absolute;
+            top: 40px;
+            left: 175px;
+        }
+
+        .right .r-chenge .rc-input input {
+            margin-bottom: 41px;
+            width: 600px;
+            height: 50px;
+            padding: 0 15px;
+            border: 3px solid black;
+            font-size: 20px;
+            font-family: "SimHei";
+            background-color: rgba(190, 199, 211, 0.3);
+        }
+
+        .right .r-chenge .rc-btn input {
+            margin-top: 45px;
+            width: 80px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 3px solid black;
+            font-family: "SimHei";
+            font-size: 20px;
+        }
+
+        .right .r-chenge .rc-btn:nth-child(8) {
+            position: absolute;
+            top: 415px;
+            left: 950px;
+        }
+
+        .right .r-chenge .rc-btn:nth-child(7) {
+            position: absolute;
+            top: 415px;
+            left: 750px;
+        }
+
+        /*---------------添加图书------------*/
+        /*---------------图书下架------------*/
+        .right .r-delete {
+            position: relative;
+            display: none;
+            width: 900px;
+            height: 560px;
+            margin: 0 auto;
+        }
+
+        .right .r-delete .rd-title {
+            width: 500px;
+            height: 60px;
+            font-size: 40px;
+            font-family: "FZShuTi";
+            /* background-color: #fff; */
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+
+        .right .r-delete form {
+            position: absolute;
+            top: 270px;
+            left: 150px;
+        }
+
+        .right .r-delete .rd-input input {
+            margin-bottom: 45px;
+            width: 600px;
+            height: 50px;
+            padding: 0 15px;
+            border: 3px solid black;
+            font-size: 20px;
+            font-family: "SimHei";
+            background-color: rgba(190, 199, 211, 0.3);
+        }
+
+        .right .r-delete .rd-btn input {
+            margin-top: 45px;
+            width: 80px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 3px solid black;
+            font-family: "SimHei";
+            font-size: 20px;
+        }
+
+        .right .r-delete .rd-btn:nth-child(3) {
+            position: absolute;
+            top: 125px;
+            left: 400px;
+        }
+
+        .right .r-delete .rd-btn:nth-child(2) {
+            position: absolute;
+            top: 125px;
+            left: 120px;
+        }
+
+        /*---------------图书下架------------*/
+        /*right---------------end*/
+        #ri-bottom li {
+            width: 223px;
+            text-align: left;
+            border-bottom: 2px solid black;
+        }
+
+        #ri-bottom .ri-list #ri-span {
+            height: 40px;
+            width: 220px;
+            background-color: rgba(211, 138, 138, 0.6);
+            border-top: 2px solid black;
+            font-size: 20px;
+            font-family: "FZYaoti";
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #ri-bottom .ri-list {
+            width: 220px;
+            height: 565px;
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+            /* background-color: rgba(255, 255, 255, 0.6); */
+            float: left;
+        }
+
+        /* ----------------r_Reader----------------- */
+        .r_reader{
+            display: none;
+        }
+        .r_reader .r_Rtop {
+            width: 1355px;
+            height: 50px;
+            border-radius: 0 30px 0 10px;
+            border: 1px solid rgba(193, 194, 201, 0.3);
+        }
+
+        .r_reader .r_Rtop input {
+            width: 180px;
+            height: 50px;
+            font-size: 24px;
+            font-weight: 2px;
+            border: 2px solid rgba(147, 150, 168, 0.3);
+            border-radius: 4px;
+            font-family: "LiSu";
+            background-color: rgba(193, 194, 201, 0.3);
+        }
+
+        table {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+        tbody {
+            border: 1px solid white;
+        }
+
+        td {
+            font: normal 15px Arial;
+            padding: 2px;
+            width: 165px;
+        }
+
+        th {
+            font: bold 15px Arial;
+            text-align: left;
+            padding: 4px;
+            border-bottom: 1px solid white;
+            width: 165px;
+        }
+        .r_Ri td,.r_Ri th{
+            width: 185px;
+
+        }
+        /* -------------------bottom----------------------- */
+        .r_reader .r_Rbottom input {
+            width: 302px;
+            height: 35px;
+            color: white;
+            padding: 0 15px;
+            border: 0px;
+            border-left: 1px solid white;
+            font-size: 18px;
+            background-color: rgba(207, 197, 243, 0);
+            float: left;
+
+        }
+        .r_Rw{
+            display: none;
+        }
+        .r_reader .r_Rbottom  img {
+            margin: 3px;
+            width: 31px;
+            height: 31px;
+            float: left;
+        }
+
+        .inp-text {
+            width: 370px;
+            height: 37px;
+            border: 1px solid white;
+            background-color: rgba(207, 197, 243, 0.37);
+        }
+
+        /* -------------reader-end----------------- */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left">
+            <div class="l-top">
+                <div class="top-infor">身份:<span id="sp1">隐藏</span></div>
+                <div class="top-infor">姓名:<span id="sp2">隐藏</span></div>
+                <div class="top-infor">ID:<span id="sp3">隐藏</span></div>
+            </div>
+            <div class="l-bottom" id="l-btn1">
+                <input type="submit" value="图书信息">
+            </div>
+            <div class="l-bottom" id="l-btn2">
+                <input type="submit" value="添加图书">
+            </div>
+            <div class="l-bottom" id="l-btn3">
+                <input type="submit" value="图书下架">
+            </div>
+            <div class="l-bottom" id="l-btn4">
+                <input type="submit" value="读者信息">
+            </div>
+        </div>
+        <div class="right">
+            <!-- 图书信息 -->
+            <div class="r-infor" id="r-infor">
+                <div class="ri-top">
+                    <input type="submit" value="图书信息" id="ri-btn1" name="ri-btn1">
+                </div>
+                <div class="ri-bottom" id="ri-bottom">
+                    <div class="ri-bottom" id="ri-bottom">
+                        <div class="ri-list">
+                            <li id="ri-span">图书编号</li><br>
+                        </div>
+                        <div class="ri-list">
+                            <li id="ri-span">图书名</li><br>
+                        </div>
+                        <div class="ri-list">
+                            <li id="ri-span">作者</li><br>
+                        </div>
+                        <div class="ri-list">
+                            <li id="ri-span">上架时间</li><br>
+                        </div>
+                        <!-- <div class="ri-list"><li id="ri-span">图书简介</li><br></div> -->
+                        <div class="ri-list">
+                            <li id="ri-span">剩余数量</li><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 添加图书 -->
+            <div class="r-chenge" id="r-chenge">
+                <div class="rc-logo"></div>
+                <form action="javascript:void(0)">
+                    <div class="rc-input">
+                        <input type="text" placeholder="图书编号" class="rc-input1" id="rc-input1" name="rc-input1">
+                    </div>
+                    <div class="rc-input">
+                        <input type="text" placeholder="图书名" class="rc-input1" name="rc-input2">
+                    </div>
+                    <div class="rc-input">
+                        <input type="text" placeholder="作者" class="rc-input1" name="rc-input3">
+                    </div>
+                    <div class="rc-input">
+                        <input type="text" placeholder="入库时间(格式:2019-1-1)" class="rc-input1" name="rc-input4">
+                    </div>
+                    <div class="rc-input">
+                        <input type="text" placeholder="图书简介" class="rc-input1" name="rc-input5">
+                    </div>
+                    <div class="rc-input">
+                        <input type="text" placeholder="图书数量" class="rc-input1" name="rc-input6">
+                    </div>
+                    <div class="rc-btn"><input type="submit"></div>
+                    <div class="rc-btn"><input type="reset"></div>
+                </form>
+            </div>
+            <!-- 图书下架 -->
+            <div class="r-delete" id="r-delete">
+                <div class="rd-title">请 记 住 这 本 离 去 的 图 书</div>
+                <form action="javascript:void(0)">
+                    <div class="rd-input"><input type="text" placeholder="需要删除的图书的编号" id="rd-input1" name="rd-input1">
+                    </div>
+                    <!-- <div class="rd-input"><input type="text" placeholder="还书时间(格式:2019-1-1)" id="rd-input2"
+                            name="rd-input2"></div> -->
+                    <div class="rd-btn"><input type="submit"></div>
+                    <div class="rd-btn"><input type="reset"></div>
+                </form>
+            </div>
+            <div class="r_reader" id="r_reader">
+                <div class="r_Rtop">
+                    <input type="submit" value="读者个人信息" id="inp-r1">
+                    <input type="submit" value="违规记录信息" id="inp-r2">
+                    <!-- <div></div> -->
+                </div>
+                <div class="r_Rbottom">
+                    <div class="r_Rw">
+                        <div class="inp-text">
+                            <img src="./img/tB.png" alt="">
+                            <input type="text" id="inp2">
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>ID</th>
+                                    <th>最大借书数</th>
+                                    <th>已借书数</th>
+                                    <th>身份</th>
+                                    <th>未处理罚款金额</th>
+                                    <th>未处理违规数</th>
+                                    <th>处理情况</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>张山</td>
+                                    <td>男</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="r_Ri">
+                        <div class="inp-text">
+                            <img src="./img/tB.png" alt="">
+                            <input type="text" id="inp1">
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>ID</th>
+                                    <th>最大借书数</th>
+                                    <th>已借书数</th>
+                                    <th>身份</th>
+                                    <th>未处理罚款金额</th>
+                                    <th>未处理违规数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>张山</td>
+                                    <td>男</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                    <td>浙江宁波</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var l_btn1 = document.getElementById("l-btn1");//左侧图书信息-按钮
+        var l_btn2 = document.getElementById("l-btn2");//左侧图书借阅-按钮
+        var l_btn3 = document.getElementById("l-btn3");//左侧图书归还-按钮
+        var l_btn4 = document.getElementById("l-btn4");//左侧罚款缴纳-按钮
+        var sp1 = document.getElementById("sp1");//个人信息-身份
+        var sp2 = document.getElementById("sp2");//个人信息-姓名
+        var sp3 = document.getElementById("sp3");//个人信息-ID
+
+        var r_infor = document.getElementById("r-infor");//右侧图书信息
+
+        var r_chenge = document.getElementById("r-chenge");//右侧添加图书
+
+        var r_delete = document.getElementById("r-delete");//右侧添加图书
+
+        var r_reader = document.getElementById("r_reader");//右侧添加图书
+
+        l_btn1.onclick = function () {
+            r_infor.style.display = "block";
+            r_chenge.style.display = "none";
+            r_delete.style.display = "none";
+            r_reader.style.display = "none";
+        }
+        l_btn2.onclick = function () {
+            r_infor.style.display = "none";
+            r_chenge.style.display = "block";
+            r_delete.style.display = "none";
+            r_reader.style.display = "none";
+        }
+        l_btn3.onclick = function () {
+            r_infor.style.display = "none";
+            r_chenge.style.display = "none";
+            r_delete.style.display = "block";
+            r_reader.style.display = "none";
+            console.log
+        }
+        l_btn4.onclick = function () {
+            r_infor.style.display = "none";
+            r_chenge.style.display = "none";
+            r_delete.style.display = "none";
+            r_reader.style.display = "block";
+            console.log
+        }
+        var inputtext = null;
+        $("#inp1").keyup(function () {
+            inputtext = $(this).val();
+            //   for(var i=0;i<8;i++)
+            //   $("tr:contains(this.value)").css({color:"red"});
+            $("tbody tr").css({ display: "none" });
+            $("tr:contains(" + inputtext + ")").css({ display: "table-row" });
+
+        })
+        
+        $("#inp2").keyup(function () {
+            inputtext = $(this).val();
+            //   for(var i=0;i<8;i++)
+            //   $("tr:contains(this.value)").css({color:"red"});
+            $("tbody tr").css({ display: "none" });
+            $("tr:contains(" + inputtext + ")").css({ display: "table-row" });
+
+        })
+
+        $("#inp-r1").click(function () {
+            $(".r_Rw").css({ display: "none" });
+            $(".r_Ri").css({ display: "block" });
+        })
+        $("#inp-r2").click(function () {
+            $(".r_Rw").css({ display: "block" });
+            $(".r_Ri").css({ display: "none" });
+        })
+    </script>
+</body>
+
+</html>

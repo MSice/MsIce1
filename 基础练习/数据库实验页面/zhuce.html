@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-size: 14px;
+            font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+            background-image: url("http://m.qpic.cn/psb?/V104CwCx0NTFjT/QoJW5v9aZTzxyY29Jes7TGYJnY*bsg*FrQcSTj*siTs!/b/dL8AAAAAAAAA&bo=vwY4BAAAAAARB7U!&rf=viewer_4");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .box {
+            /* background-color: #f5f5f5; */
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 864px;
+            height: 610px;
+            padding: 0 34px 30px;
+            margin: 100px auto 0;
+        }
+
+        .box .top {
+            width: 90px;
+            height: 60px;
+            background-image: url("http://m.qpic.cn/psb?/V104CwCx0NTFjT/77.8C8JdsqSzgcQI3CSXNAlZeBatWFLgMHNutbIKgEM!/b/dLYAAAAAAAAA&bo=WAKQAQAAAAADF*k!&rf=viewer_4");
+            background-size: cover;
+            margin: 0 auto;
+            cursor: default;
+            margin-bottom: 40px;
+        }
+
+        /*bottom---star*/
+        .bottom .text1 h4 {
+            font-size: 30px;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        /* b-bottom----star*/
+        .bottom .b-bottom h4 {
+            color: #3f3d3d;
+            margin-left: 20px;
+        }
+
+        .bottom .b-bottom {
+            width: 430px;
+            height: 450px;
+            margin: 10px auto 0;
+            position: relative;
+        }
+
+        .bottom .b-bottom .btop-input {
+            width: 430px;
+            height: 50px;
+            text-align: center;
+            margin-top: 30px;
+            /* background-color: red; */
+        }
+
+        .bottom .b-bottom input {
+            width: 370px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            padding: 0 20px;
+            border: 1px #aaa solid;
+            border-radius: 4px;
+        }
+
+        .bottom .b-bottom .btn {
+            width: 120px;
+            margin-top: 25px;
+            margin-left: 55px;
+        }
+        /* .bottom .b-bottom .btn:hover{
+            background-color: red;
+            color:red;
+        } */
+        .bottom .btn .input1 {
+            width: 120px;
+            padding: 0;
+        }
+
+        .bottom .input-position {
+            position: absolute;
+            top: 347px;
+            left: 190px;
+        }
+
+        /*b-bottom----end*/
+        /*bottom---end*/
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+        </div>
+        <div class="bottom">
+            <div class="text1">
+                <h4>注册借阅卡</h4>
+            </div>
+            <div class="b-bottom">
+                <form action="javascript:void(0)">
+                    <div class="input1 btop-input">
+                        <input type="text" placeholder="借阅卡ID" id="input1">
+                    </div>
+                    <h4>2-14个字符：英文、数字</h4>
+                    <div class="input2 btop-input">
+                        <input type="text" placeholder="姓名" id="input2">
+                    </div>
+                    <h4>请输入你的名字</h4>
+                    <div class="input3 btop-input">
+                        <input type="text" placeholder="请输入密码" id="input3">
+                    </div>
+                    <h4>8-20个字符(区分大小写)</h4>
+                    <div class="input4 btop-input">
+                        <input type="text" placeholder="请确认密码" id="input4">
+                    </div>
+                    <div class="btn">
+                        <input type="submit" value="注册" class="input1" id="btn1">
+                    </div>
+                </form>
+                <div class="btn input-position">
+                    <input type="submit" value="返回登录" class="input1" id="btn2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- script-----star -->
+    <script>
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var input3 = document.getElementById("input3");
+        var input4 = document.getElementById("input4");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        btn1.onclick = function () {
+            if (input1.value == "") {
+                alert("借阅卡ID不能为空");
+                return false;
+            }
+            else if(input2.value == ""){
+                alert("姓名信息不能为空");
+                return false;
+            }
+            else if(input3.value == ""){
+                alert("密码不能为空");
+                return false;
+            }
+            else if(input4.value == ""||input3.value!=input4.value == ""){
+                alert("请确认密码");
+                return false;
+            }
+            var type=confirm("确认信息后将不可修改");
+            return type;
+        }
+        btn2.onclick=function(){
+            window.location.href="file:///E:/weichuang/MsHot/MsIce1/20191013me/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E9%AA%8C%E9%A1%B5%E9%9D%A2/denglu.html";
+        }
+    </script>
+</body>
+
+</html>

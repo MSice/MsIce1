@@ -1,0 +1,162 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Moving Circle</title>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<canvas id="zCanvas" width="1000" height="500" style="border:2px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+<script type="text/javascript">
+/**	角色类设计
+ *	类成员
+ *	x		:	location x
+ *	y		:	location y
+ *	speed	:	moving speed,with x direction & y direction
+ *	stop	:	moving controler	0:move,1:stop
+ *	stopl	:	left controler		0:left move,1:left stop
+ *	stopr	:	right controler		0:right move,1:right stop
+ *	stopu	:	up controler		0:up move,1:up stop
+ *	stopd	:	down controler		0:down move,1:down stop
+ *	类方法
+ *	draw	:	draw itself on the canvas
+ *	left	:	left moving
+ *	right	:	right moving
+ *	up		:	up moving
+ *	down	:	down moving
+ */
+var Sprite = function() {
+	this.speed = {
+		x:1,
+		y:1
+	}
+	this.stop = 1;
+	this.stopl = 1;
+	this.stopr = 1;
+	this.stopu = 1;
+	this.stopd = 1;
+}
+Sprite.prototype = {
+	draw : function() {	
+	},
+	left : function() {
+		this.x -= this.speed.x;
+	},
+	right : function() {
+		this.x += this.speed.x;
+	},
+	up : function() {
+		this.y -= this.speed.y;
+	},
+	down : function() {
+		this.y += this.speed.y;
+	}
+}
+/**	圆类：继承角色类
+ *	类成员（非父类成员）
+ *	ctx			:	用于绘制的Context，就是指定要绘制的画布
+ *	radius		:	半径
+ *	propotity	:	维护style的属性集，包括填充颜色、描边颜色、描边大小等
+ *	类方法
+ *	Circle		:	构造方法
+ *	draw		:	覆盖父类的自绘制方法
+ *	left		:	同父类
+ *	right		:	同父类
+ *	up			:	同父类
+ *	down		:	同父类
+ */
+var Circle = function(ctx,x,y,radius,style) {
+	this.ctx = ctx;
+	this.x = x;
+	this.y = y;
+	this.radius = radius;
+	this.propotity = {
+		fillStyle:"#acffac",
+		strokeStyle:"#000000",
+		lineWidth:"2"
+	}
+}
+Circle.prototype = new Sprite();
+Circle.prototype.draw = function() {
+	this.ctx.beginPath();
+	this.ctx.lineWidth = this.propotity.lineWidth;
+	this.ctx.strokeStyle = this.propotity.strokeStyle;
+	this.ctx.fillStyle = this.propotity.fillStyle;
+	this.ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
+	this.ctx.stroke();
+	this.ctx.fill();
+}
+// 获取当前绘图区
+var can = document.getElementById("zCanvas");
+var ctx = can.getContext("2d");
+// 构造一个角色并绘制
+var ca = new Circle(ctx,10,50,10);
+ca.draw();
+// 控制角色的左移动
+function left() {
+	if(ca.x < 5) {
+		ca.stopl = 1;
+		ca.stopr = 0;
+		right();
+	}
+	if(ca.stopl == 0) {
+		ca.ctx.clearRect(0,0,1000,500);
+		ca.left();
+		ca.draw();
+		setTimeout(left, 10);
+	}
+}
+// 控制角色的右移动
+function right() {
+	if(ca.x > 995) {
+		ca.stopr = 1;
+		ca.stopl = 0;
+		left();
+	}
+	if(ca.stopr == 0) {
+		ca.ctx.clearRect(0,0,1000,500);
+		ca.right();
+		ca.draw();
+		setTimeout(right, 10);
+	}
+}
+// 控制角色的上移动
+function up() {
+	if(ca.y < 5) {
+		ca.stopu = 1;
+		ca.stopd = 0;
+		down();
+	}
+	if(ca.stopu == 0) {
+		ca.ctx.clearRect(0,0,1000,500);
+		ca.up();
+		ca.draw();
+		setTimeout(up, 10);
+	}
+}
+// 控制角色的下移动
+function down() {
+	if(ca.y == 495) {
+		ca.stopd = 1;
+		ca.stopu = 0;
+		up();
+	}
+	if(ca.stopd == 0) {
+		ca.ctx.clearRect(0,0,1000,500);
+		ca.down();
+		ca.draw();
+		setTimeout(down, 10);
+	}
+}
+// 设置角色的运动初态：向右下方运动（横向和纵向的速度相同）
+ca.stopr = 0;
+right();
+ca.stopd = 0;
+down();
+</script>
+</body>
+</html>

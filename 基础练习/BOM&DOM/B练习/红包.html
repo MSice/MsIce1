@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var b = 50;
+        var a = [""];
+        var c = 0;
+        var d = 1;
+        var sum = 0
+        for (var i = 0; i < 10; i++) {
+            if (d >= 0.01)
+                while (c<= d) {
+                    c = parseInt(Math.random() * 100) / 100;
+                }
+            d = d - c;
+            document.write(c+"<br>");
+        }
+        // do {
+        //     sum = 0;
+        //     a = [""];
+        //     for (var i = 0; i < 10; i++) {
+        //         c = parseInt(Math.random() * 100)/100;
+        //         sum += c;
+        //         a.push(c);
+        //     document.write(c+"<br>");
+        //     }
+        //     document.write(sum+"<br>");
+        // for (var i = 0; i < 10; i++){
+        //     // a[i]=5+a[i]*50;
+        //     document.write(a[i]+" ");
+        // }
+    </script>
+</body>
+
+</html>

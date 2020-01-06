@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第六章</title>
+</head>
+
+<body>
+    <script>
+        // //6.1
+        // var x=prompt("请输入需要计算的数值！");
+        // document.write("平方："+Math.pow(x,2));
+        // document.write("平方根："+Math.sqrt(x));
+        // document.write("自然对数："+Math.log(x));
+        // //6.2
+        // document.write(Math.floor(Math.random() * 101))
+        // //6.3
+        // var d=new Date();
+        // var arr=["日","一","二","三","四","五","六"];
+        // document.write(d.getFullYear() +"年"+d.getMonth()+"月"+d.getDate()+"日"+d.getHours()+"点"+d.getMinutes()+"分"+d.getSeconds()+"秒"+"(星期"+arr[d.getDay()]+")"+"，欢迎您的到访！");
+        //6.4
+        function CollectDigits(s)
+        {
+        var arr=s.split("");
+        var text="";
+        var arr1=[""];
+        for(var i=0;i<s.length;i++){
+            if(arr[i]>=0&&arr[i]<=9)
+            arr1.push(arr[i]);
+        }
+        return arr1.join("");
+        }
+        var str=prompt("请输入一段字符串！");
+        var ss=CollectDigits(str);
+        document.write(ss);
+        // //6.5
+        // function Merge(s1, s2) {
+        //     var p2, p1;
+        //     var arr3 = [];
+        //     if (s1.length > s2.length) {
+        //         p1 = s2.length;
+        //         p2 = s1.length
+        //         var arr1 = s2.split("");
+        //         var arr2 = s1.split("");
+        //     }
+        //     else {
+        //         p1 = s1.length;
+        //         p2 = s2.length
+        //         var arr1 = s1.split("");
+        //         var arr2 = s2.split("");
+        //     }
+        //     for (var i = 0; i < p1; i++) {
+        //         arr3.push(arr1[i]);
+        //         arr3.push(arr2[i]);
+        //     }
+        //     for (var j = p1; j < p2; j++)
+        //         arr3.push(arr2[j]);
+        //     return arr3.join("");
+        // }
+        // var s1 = prompt("请输入第一个字符串！！！");
+        // var s2 = prompt("请输入第二个字符串！！！");
+        // document.write(Merge(s1, s2));
+        // //6.6
+        // var grade = new Array(7);
+        // var ji = [];
+        // var sum = 0;
+        // var r;
+        // for (var i = 0; i < 7; i++) {
+        //     grade[i] = prompt("请输入第" + (i+1) + "科成绩！");
+        //     sum = sum+parseInt(grade[i]);
+        //     if (grade[i] < 60)
+        //         ji.push("第"+(i+1)+"科:"+grade[i]);
+        // }
+        //     document.write(sum);
+        // r=sum/7;
+        // document.write("平均成绩为："+r+"<br>"+"不及格成绩为："+"<br>"+ji.join("<br>"));
+            
+
+    </script>
+</body>
+
+</html>

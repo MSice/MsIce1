@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // setInterval(function(){},1000);//定时重复进行
+        //setTimeout(function(){console.log("{}中为函数中要运行的语句")},1000);//定时只进行一次函数
+        var timer=setInterval(function(){
+            console.log("1");
+        },1000);
+        clearInterval(timer);//停止setInterval重复进行函数一旦停止就没了
+
+    </script>
+</body>
+</html>

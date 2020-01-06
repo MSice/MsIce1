@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .d-box {
+            width: 300px;
+            height: 500px;
+            background-color: #b0b0bb;
+            color: chartreuse;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .d-1 {
+            width: 50px;
+            margin: 0 auto;
+        }
+        .d-2 {
+            width: 200px;
+            margin: 50px auto;
+        }
+        .btn3{
+            float: right;
+        }
+        .btn2{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-box">
+        <div id="box1" class="d-1"><h1 id="box">0</h1></div>
+        <div class="d-2">
+            <button id="btn-1" class="btn1" onclick="star1(num)">开始</button>
+            <button id="btn-2" class="btn2" onclick="setting(num)">设置</button>
+            <button id="btn-3" class="btn3" onclick="reset()">重置</button>
+        </div>
+    </div>
+    <script>
+        var obox = document.getElementById("box");
+        var obtn = document.getElementById("btn-1");
+        var num = 0;
+        var type_1 = true;
+        var timer = null;
+        function setting() {
+            num = prompt("请输入倒计时时间");
+            obox.innerText = num;
+        }
+        function star1() {
+            if (num == 0)
+                setting(num);
+            if (type_1) {
+                obtn.innerText = "暂停";
+                type_1 = false;
+                timer = setInterval(function t() {
+                    obox.innerText = --num;
+                    if (num == 0) {
+                        clearInterval(timer);
+                        obtn.innerText = "开始";
+                        type_1 = true;
+                    }
+                }, 1000)
+            }
+            else {
+                obtn.innerText = "开始";
+                type_1 = true;
+                clearInterval(timer);
+            }
+        }
+        function reset() {
+            clearInterval(timer);
+            obtn.innerText = "开始";
+            num = 0;
+            obox.innerText = "0";
+        }
+    </script>
+</body>
+
+</html>

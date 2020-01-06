@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+
+        /* #box {
+            width: 100px;
+            height: 100px;
+            background-color: gray; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box"></div> -->
+
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById("box");
+        document.oncontextmenu = function (e) {
+            console.log(e.clientX, e.clientY);
+            e.preventDefault();//阻止默认行为
+        }
+//     var oBox = document.getElementById("box");
+//     oBox.onclick = function(){
+//       oBox.style.width = "300px";
+//       oBox.style.backgroundColor="red";//有中横线的  第二个单词开投字母大写
+//     }
+
+    </script>
+</body>
+
+</html>

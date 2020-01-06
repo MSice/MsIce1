@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #box {
+            width: 440px;
+            height: 440px;
+            border: 5px solid #b0b0b0;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #box img {
+            width: 440px;
+            height: 440px;
+        }
+
+        .up-img {
+            width: 2640px;
+            height: 440px;
+            position: absolute;
+        }
+
+        #box ul li {
+            float: left;
+        }
+
+        .bottom #btn-right {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .bottom #btn-left {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .bottom ul li {
+            width: 20px;
+            height: 20px;
+                float: left;
+                border-radius: 50%;
+            margin-left: 10px;
+            background-color: #f90;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        #btn-right {
+            float: right;
+        }
+
+        #btn-right .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="up-img" id="up-img">
+            <ul>
+                <li>
+                    <img src="./img/5.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/6.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/7.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/8.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/9.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/5.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="bottom" id="bottom">
+            <div id="btn-left">
+                <ul>
+                    <li id="btn1">&lt;</li>
+                    <li id="btn2">&gt;</li>
+                </ul>
+            </div>
+            <div id="btn-right">
+                <ul>
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var ob_right = document.getElementById("btn-right").getElementsByTagName("li");
+        var d_bottom = document.getElementById("up-img");
+        var obox = document.getElementById("box");
+        var l_btn1 = document.getElementById("btn1");
+        var l_btn2 = document.getElementById("btn2");
+        var time_bright = null;
+        var timer = null;
+        star = true;
+        var type = 1;
+        var NowImg = 0;
+
+        //函数功能： 进行动画播放
+        //函数形参： 数字按钮的索引/图片滚动方向/滚动几张图片  数字1--1·······
+        function imgplay(br_type, type, p = 1, p2) {
+            if (star) {
+                clearTimeout(time_bright);
+                console.log(star + "***");
+                //数字按钮改变
+                for (var j = 0; j < ob_right.length; j++) {
+                    ob_right[j].className = "";
+                }
+                if (br_type == 5)
+                    ob_right[0].className = "active";
+                else
+                    ob_right[br_type].className = "active";
+                //图片轮转--滚动方向
+                time_bright = setInterval(function () {
+                    // console.log(-440 * (NowImg + 1) + 1 - (p - 1 + p2) * 440);
+                    if (d_bottom.offsetLeft == -440 * (NowImg + 1) - (p + p2 - 1) * 440) {
+                        star = true;
+                        clearInterval(time_bright);
+                        if (br_type == 5) {
+                            d_bottom.style.left = 0;
+                            NowImg = 0;
+                        }
+                        else
+                            //当前图片索引
+                            NowImg = br_type;
+                    }
+                    else {
+                        // console.log(d_bottom.offsetLeft - 10 * p * type + "px");
+                        d_bottom.style.left = d_bottom.offsetLeft - 10 * p * type + "px";
+                    }
+                }, 16)
+            }
+
+        }
+
+        //循环： 给数字按钮绑定索引值，并进行按钮点击事件
+        for (var i = 0; i < ob_right.length; i++) {
+            ob_right[i].br_type = i;
+            // console.log(ob_right[i]);
+            ob_right[i].onclick = function () {
+                imgplay(this.br_type, 1, this.br_type - NowImg, 0);
+                // console.log(this.br_type - NowImg);
+                console.log(star);
+                star = false;
+            }
+        }
+
+        //左右点击按钮
+        //右
+        l_btn2.onclick = function () {
+            imgplay(NowImg + 1, 1, 1, 0);
+            star = false;
+        }
+        //左
+        l_btn1.onclick = function () {
+            if (NowImg == 0) {
+                d_bottom.style.left = -2200 + "px";
+                NowImg = 5;
+                imgplay(4, -1, 1, -2);
+            }
+            // imgplay(4, -1, -4);
+            else
+                imgplay(NowImg - 1, -1, 1, -2);
+            star = false;
+        }
+
+        //鼠标移入停止播放
+        obox.onmouseover = function () {
+            clearInterval(timer)
+        }
+        //鼠标移出开始播放
+        obox.onmouseout = function () {
+            play()
+        }
+        //函数功能：图片自动传动
+        function play() {
+            timer = setInterval(() => {
+                // if (NowImg == 4)
+                //     imgplay(0, 1, -4);
+                // else
+                imgplay(NowImg + 1, 1, 1, 0);
+            }, 2000)
+        }
+        play();
+    </script>
+</body>
+
+</html>

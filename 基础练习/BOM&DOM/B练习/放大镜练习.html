@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 440px;
+            height: 440px;
+            margin: 0 auto;
+            position: relative;
+            float: left;
+        }
+
+        #box img {
+            height: 100%;
+            width: 100%;
+        }
+
+        #b-img {
+            width: 110px;
+            height: 110px;
+            background-color: black;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #box1 {
+            width: 440px;
+            height: 440px;
+            float: left;
+            overflow: hidden;
+            margin-left: 50px;
+        }
+
+        #box1 img{
+            width: 880px;
+            height: 440px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <img src="./img/1.jpg" alt="">
+        <div id="b-img"></div>
+    </div>
+    <div id="box1">
+        <img src="./img/1.jpg" alt="">
+    </div>
+    <script>
+        var b_img = document.getElementById("b-img");
+        var obox = document.getElementById("box");
+        // b_img.onmouseover = function (e) {
+        // console.log(b_img.offsetLeft,b_img.offsetTop);
+        // if(e.clientX>=obox.offsetLeft&&e.clientY>=obox.offsetTop&&e.clientX<=obox.offsetLeft+440&&e.clientY<=obox.offsetTop+440)
+        obox.onmousemove = function (e) {
+            if (e.clientX - obox.offsetLeft - 55 > 0 && e.clientX - obox.offsetLeft - 55 < 330)
+                b_img.style.left = e.clientX - obox.offsetLeft - 55 + "px";
+            if (e.clientY - obox.offsetTop - 55 > 0 && e.clientY - obox.offsetTop - 55 < 330)
+                b_img.style.top = e.clientY - obox.offsetTop - 55 + "px";
+            // else
+            // document.onmousemove=null;
+        }
+    </script>
+</body>
+
+</html>

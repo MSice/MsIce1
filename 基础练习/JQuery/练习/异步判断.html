@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js1/jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        div {
+            height: 40px;
+            line-height: 40px;
+            width: 264px;
+            /* background-color: red; */
+            margin: 20px auto;
+            border: 1px solid #b0b0b0;
+        }
+
+        input {
+            border: none;
+            background: none;
+            outline: none;
+            height: 40px;
+            width: 200px;
+            padding: 0 15px;
+            float: left;
+
+        }
+
+        p {
+            font-size: 16px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text">
+        <p></p>
+    </div>
+    <script>
+        $("input").keyup(function () {
+            var this1=$(this);
+            $.get("https://api.myjson.com/bins/p8jfw",function(name1){
+                for (var i = 0; i < name1.name.length; i++) {
+                        if (this1.val() == name1.name[i]) {
+                            $("p").text("x");
+                            $("p").css("color", "red");
+                            $("p").css("transform", "scale(1,1)");//第一个是字体横向百分比二纵向
+                            $("p").css("font-size", "25px");
+
+                            break;
+                        }
+                        else {
+                            $("p").text("√");
+                            $("p").css("color", "rgb(19, 248, 11)");
+                            $("p").css("transform", "scale(2,1)");//第一个是字体横向百分比二纵向
+                            $("p").css("font-size", "16px");
+                        }
+                    }
+            })
+        })
+
+
+
+        // $("input").keyup(function () {
+        //     var xmlhttp;
+        //     var this1=$(this);
+        //     if (window.XMLHttpRequest) {
+        //         xmlhttp = new XMLHttpRequest();
+        //     }
+        //     else {
+        //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        //     }
+        //     xmlhttp.open("GET", "https://api.myjson.com/bins/p8jfw", true);
+        //     xmlhttp.send();
+        //     xmlhttp.onreadystatechange = function () {
+        //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //             // document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+        //             var jsonObj = JSON.parse(xmlhttp.responseText);
+        //             for (var i = 0; i < jsonObj.name.length; i++) {
+        //                 if (this1.val() == jsonObj.name[i]) {
+        //                     $("p").text("x");
+        //                     $("p").css("color", "red");
+        //                     $("p").css("transform", "scale(1,1)");//第一个是字体横向百分比二纵向
+        //                     $("p").css("font-size", "25px");
+
+        //                     break;
+        //                 }
+        //                 else {
+        //                     $("p").text("√");
+        //                     $("p").css("color", "rgb(19, 248, 11)");
+        //                     $("p").css("transform", "scale(2,1)");//第一个是字体横向百分比二纵向
+        //                     $("p").css("font-size", "16px");
+        //                 }
+        //             }
+        //         }
+        //     }
+        // })
+    </script>
+</body>
+
+</html>

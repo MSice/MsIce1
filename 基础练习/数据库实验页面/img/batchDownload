@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>马克思主义基本原理概论-资源</title><link rel="stylesheet" type="text/css" href="/space/new/moocIndex/css/teacherHeader.css"/>
+<link href="/space/new/moocIndex/css/moocLeft.css" type="text/css" rel="stylesheet"/><link href="/space/new/moocIndex/css/ZiYuan.css" type="text/css" rel="stylesheet"/>
+<link href="/css/courselist/teacherclass.css?v=20160407" rel="stylesheet" type="text/css" />
+<link href="/css/courselist/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/js/common/jquery.min.js"></script>
+<script type="text/javascript" src="/js/common/jquery-migrate.min.js"></script><script type="text/javascript" src="/space/zclip/jquery.zclip.min.js"></script>
+<script>
+    var copyAllLinks = function () {
+        $("#copyAllLinks").zclip({
+            path:  "/space/zclip/ZeroClipboard.swf",
+            copy: function () {  var v= $("#url").text().trim();  return v; },
+            afterCopy:function () { alert('复制成功');}
+        });
+    }
+
+</script>
+<style>
+	.pubPopUp_box{border:none;-webkit-box-box-shadow: 5px 5px 8px 0 rgba(0,0,0,0.3);-moz-box-box-shadow: 5px 5px 8px 0 rgba(0,0,0,0.3);-o-box-box-shadow: 5px 5px 8px 0 rgba(0,0,0,0.3);box-shadow: 5px 5px 8px 0 rgba(0,0,0,0.3);}
+	.pubPopUp_box .pubBox_Con{padding:0 0 10px 0;}
+	.pubPopUp_box .pubBox_Con .pBCon_ul .fileTit,.pubPopUp_box .pubBox_Con .pBCon_ul .fileBlock .fileTit{padding:8px 0 8px 30px;}
+	.pubPopUp_box .pubBox_Con .pBCon_ul .bgColor_e6f{background:#f5faea;border-top:1px solid #95b15a;border-bottom:1px solid #95b15a;}
+	.moveBtn{padding:24px 0 14px;text-align:right}
+	#rootDir{font-size: 12px;color: #333;font-weight: bold;padding:8px 0 8px 82px;}
+	.bgColor_p {background: #f5faea;border-top: 1px solid #95b15a;border-bottom: 1px solid #95b15a;}
+	.zlTable tr th.brTL{border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;}
+	.zlTable tr th.brTR{border-top:1px solid #d9d9d9;border-right:1px solid #d9d9d9;}
+	.studyList{width:100%;height:52px;border-bottom:1px solid #f2f2f2;}
+	.studyFolder{width:30px;height:27px;margin-right:16px;margin-left:20px;margin-top:11px;}
+	.ztCover{display:block;width:42px;height:42px;margin-right:10px;margin-left:14px;margin-top:5px;border-radius:3px;}
+	.studyList>a{line-height:52px;font-size:14px;color:#333;}
+	.ztInfor{height:52px;}
+	.ztInfor a{display:block;gont-size:14px;color:#333;}
+	.lh52{line-height:52px;}
+	.lh30{line-height:28px;}
+	.ztInfor p{font-size:12px;color:#999;}
+	.ztInfor p span{padding-right:10px;}
+	.folderBack{padding:10px;border-bottom: 1px #f1f1f1 solid;cursor: pointer;}
+	.folderBackBtn{background:url(/images/folderBackBtn.png) no-repeat left center;overflow:hidden;padding-left:46px;margin-left:15px;font-size:12px;}
+	.batchdelete{background:none;border:none;color:#7b9e31;margin-left:10px;}
+	.selectAllText{padding-left:10px;}
+	.editDate{height:49px;line-height:49px;background:#f0f0f0;border-bottom:1px solid #e0e0e0;font-size:16px;font-weight:bold;color:#333;padding:0 15px;}
+</style>
+</head>
+<body class="bg"> 
+
+			<div class="mb10">
+            			                                    <script type="text/javascript" src="http://www.fanya.hlju.edu.cn/passport/allHead.shtml"  charset="utf-8"></script>
+                                    </div>
+		
+
+
+<!--导航开始-->
+
+<style type="text/css">
+	 .workTip{display:none;width:8px;height:8px;background:red;border-radius:8px;position:absolute;top:-2px;right:0px}
+	 .testTip{display:none;width:8px;height:8px;background:red;border-radius:8px;position:absolute;top:-2px;right:0px}
+	 .cdataTip{display:none;width:8px;height:8px;background:red;border-radius:8px;position:absolute;top:-2px;right:0px}
+	 .workTipPd{display:none;width:8px;height:8px;background:red;border-radius:8px;position:absolute;top:10px;right:0px}
+</style>
+
+<div  class="c-header" >
+		<div class="headerwrap">
+					<div  class="c-menu">
+				<div class="navhide">
+					<span></span>功能导航				</div>
+									<div class="navshow">
+						<ul>
+														    							        <li><a  href='/mycourse/studentcourse?courseId=204807673&clazzid=9527457&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc='>首页</a><label id="mytaskcount"></label></li>
+							    			    				 							        																														    				    																																									<li><a  href="/moocAnalysis/statistics-std?courseId=204807673&classId=9527457&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc=">统计</a></li>
+																																														    <li><a onclick="rmWorkDot('9527457','cdata',this);"  class="current"  href="/coursedata?classId=9527457&courseId=204807673&type=1&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc=" data = "/coursedata?classId=9527457&courseId=204807673&type=1&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc=">资料</a><i class="cdataTip"></i></li>
+							    																													   		<li><a   href="/schoolCourseInfo/getNotifyList?courseId=204807673&classId=9527457&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc=">通知</a></li>
+							    															
+																																													<li><a  onclick="rmWorkDot('9527457','work',this);"  href="javascript:;" data="/work/getAllWork?classId=9527457&courseId=204807673&isdisplaytable=2&mooc=1&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc=">作业  </a><i class="workTip"></i></li>
+																																											    								    	<li><a onclick="rmWorkDot('9527457','exam',this);"  href="javascript:;" data="/exam/test?classId=9527457&courseId=204807673&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc=">考试 </a><i class="testTip"> </i></li>
+								    																														<li><a  href='http://fanyapbl.hlju.edu.cn/pbl/list?courseId=204807673' target="_blank">PBL</a></li>
+								
+														    							    									        								        	<li><a  href="/bbscircle/grouptopic?courseId=204807673&clazzid=9527457&showChooseClazzId=9527457&ut=s&enc=3ff29b92abc68c42250ad8ea3c88b76a&cpi=39876782&openc=">讨论</a></li>
+								        							        							    															
+								
+														
+														
+														
+														
+								
+																				</ul>
+					</div>
+							</div>
+							<h1>
+				<span title="马克思主义基本原理概论" >
+					<a  href="javascript:;"  onclick="$('#tpsubmit').submit();">
+						马克思主义基本原理概论
+					</a>
+				</span>
+				<span class="articleschool" style="text-decoration: none;">
+					<span title="马克思主义基本原理概论" >
+						<font color="#333">
+							<span title=""></span>
+						</font>&nbsp;
+											</span>
+				</span>
+			</h1>
+				<form id="tpsubmit"  action="/course/204807673.html" target="_blank"  method="post">
+							<input type="hidden" name="edit" value="false"></input>
+					</form>
+	
+	</div>
+</div>
+<input type="hidden" id="cid" value="9527457">
+
+<script>
+$('.navhide span').click(function(){
+
+		$(this).parent().hide(0,function(){
+		$('.navshow').show();
+		$('.navshow').animate({'margin-right':0 + 'px'},400);
+		});
+		});
+		$('.navshow span').click(function(){
+		$('.navhide').show();
+		$(this).parent().animate({'margin-right':-980 + 'px'},400,function(){
+		});
+		}); 
+	var hasWorkDot=false;
+	var hasExamDot=false;
+    var hasCourseDataDot=false;
+   //待批作业、待批考试红点数据加载
+      var redDot = function(){
+        jQuery.ajax({ 
+        	type: "get", 
+        	url : "/api/workTestPendingNew", 
+        	data: {
+            		classIds:$("#cid").val()
+        		}, 
+        	success: function(data){
+        	  var json= jQuery.parseJSON(data)[0];
+    			if('s'=='s') {
+    				if(json.hasWorkMsg){
+    				  $(".workTip").css("display","inline-block");
+					  hasWorkDot=true;
+    				}
+    				if(json.hasExamMsg){
+    					$(".testTip").css("display","inline-block");
+						hasExamDot=true;
+    				}
+                    if(json.hasCourseDataMsg){
+                        $(".cdataTip").css("display","inline-block");
+                        hasCourseDataDot=true;
+                    }
+    			}
+    		}
+        	
+        }); 
+      }
+  $(function(){
+    if('s'=='s'){
+		setTimeout('redDot()',1000);
+	}
+	if($(".navshow ul li").length==1){
+		$(".navshow").css("display","none");
+	}
+  	
+  });
+  var rmWorkDot = function(classid,type,me){
+      if ('work' == type) {
+	 	location.href=$(me).attr("data");
+		return;
+	 }
+	 if('exam'==type && !hasExamDot){
+	 	location.href=$(me).attr("data");
+		return;
+	 }
+     if('cdata'==type && !hasCourseDataDot){
+        location.href=$(me).attr("data");
+        return;
+     }
+     
+     jQuery.ajax({ 
+        	type: "get",
+            dataType: "json", 
+        	url : "/api/removeRedDot", 
+        	data: {
+            		classId:classid,
+					type:type
+        		}, 
+        	success: function(data){
+                if(data && data.status){
+            		//success
+                    location.href=$(me).attr("data");
+                }
+    		}
+        	
+        });
+        
+    //location.href=$(me).attr("data");
+  }
+  
+</script>
+<!--导航结束-->
+<div class="wrap1000 clearfix con">
+<div  class="width1100_smile"  >
+	<div class="RightCon" id="RightCon">
+		<div class="radiusBG">
+        <div class="ZIYuan_Sj">
+        	<!--标题-->
+			<script src="/jsv/head4?secondHeader=1&classId=9527457&courseId=204807673&ut=s&cpi=&openc="  type="text/javascript"></script>
+            <!--标题结束-->
+							<div style="margin-top: 30px;color: red;font-size: 15px;">
+					批量下载功能为您提供资料的下载链接,请复制以下链接，粘贴到本地下载工具的任务列表中完成批量下载。				</div>
+				<div style="font-size: 15px; margin-top: 30px;" id="url" name="url">
+											https://cs-ans.chaoxing.com/download/1a0eb7fdb11a77af8ff4580ee6ff13bc<br>
+									</div>
+                    <a href="javascript:void(0);" style="margin-top: 30px;"  onclick="copyAllLinks()" id="copyAllLinks" class="Btn_blue_2"><span>复制全部链接</span></a>
+			</html>

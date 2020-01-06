@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定事件</title>
+</head>
+
+<body>
+    <button id="btn-1">
+        add
+    </button>
+    <script>
+        //事件三要素  事件源：obtn  触发事件的东西   
+        //事件处理函数：function匿名函数   
+        //事件对象：e 事件匹配的参数  
+        var obtn = document.getElementById("btn-1");
+        //第一种绑定事件
+
+        //事件三要素  事件源：   事件处理函数：   事件对象：
+        obtn.onclick = function(e){
+            console.log(e);
+            console.log("hello");
+        }
+
+
+
+
+
+        
+        //第二种 添加事件监听   三个参数  第一个是绑定事件  第二个是匿名函数
+        // obtn.addEventListener("click",function(){
+        //     console.log("hello");
+        // })
+
+        // obtn.addEventListener("click",function(){
+        //     console.log("world");
+        // })
+
+
+
+
+        // obtn.onclick = function(){
+        //     console.log("world");
+        // }
+    </script>
+</body>
+
+</html>

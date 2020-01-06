@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可能有一些未知的BUG多点几次</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #b0b0b0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .box {
+            width: 100%;
+            height: 600px;
+            color: white;
+            position: relative;
+            background-color: #b0b0b0;
+        }
+
+        .star {
+            width: 360px;
+            height: 650px;
+            margin: 0 auto 0;
+            /* padding: 75px 30px 100px; */
+            background-color: #fff;
+            background-image: url("http://b19.photo.store.qq.com/psb?/V104CwCx2WnQSb/rXDJpAKXp57K5ByIxJcT4.u3RJlSnPZGLY.Ut8julT4!/b/dBMAAAAAAAAA&bo=0AIABQAAAAARB.c!&rf=viewer_4");
+            background-size: cover;
+            position: relative;
+        }
+
+        .star .title {
+            position: absolute;
+            top: 400px;
+            left: 30px;
+            font-size: 50px;
+            width: 300px;
+            color: white;
+            text-align: center;
+            display: none;
+            background-color: #e6d433;
+            /* background-color: #fff; */
+        }
+
+        .star .input {
+            width: 300px;
+            height: 360px;
+            padding: 50px 0;
+            position: absolute;
+            top: 210px;
+            left: 30px;
+            /* background-color: rgb(20, 20, 20); */
+        }
+
+        .star .dis-block {
+            display: block;
+        }
+
+        #guai {
+            display: block;
+        }
+
+        .star .D-star {
+            text-align: center;
+            width: 300px;
+            height: 50px;
+            font-size: 30px;
+            position: absolute;
+            top: 130px;
+            left: 30px;
+            color: rgb(255, 254, 254);
+        }
+
+        .star .input2 {
+            height: 50px;
+            margin-top: 40px;
+        }
+
+        .star .input1 {
+            height: 50px;
+        }
+
+        .star .text {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            float: left;
+            line-height: 50px;
+            font-size: 18px;
+        }
+
+        .star .text1 {
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            float: right;
+        }
+
+        .star input {
+            font-size: 20px;
+            width: 246px;
+            height: 46px;
+            opacity: 0.7;
+        }
+
+        .star .bottom {
+            width: 300px;
+            height: 50px;
+            margin-top: 40px;
+        }
+
+        .star .bottom #Star {
+            float: left;
+            margin-left: 53px;
+            background-color: #fff;
+            font-size: 35px;
+            text-align: center;
+            color: burlywood;
+            width: 75px;
+            height: 50px;
+            opacity: 0.7;
+            line-height: 50px;
+        }
+
+        .star .bottom #End {
+            float: right;
+            margin-right: 37px;
+            background-color: #fff;
+            color: burlywood;
+            width: 75px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 35px;
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        .box .jian {
+            width: 170px;
+            height: 100px;
+            position: absolute;
+            top: 560px;
+            display: none;
+            /*             560           */
+            left: 170px;
+        }
+
+        .box .j1 {
+            border-width: 20px 50px;
+            border-style: solid;
+            border-color: transparent #e6d433 transparent transparent;
+            width: 0;
+            float: left;
+        }
+
+        .box .j2 {
+            float: left;
+            height: 40px;
+            width: 70px;
+            line-height: 40px;
+            background-color: #e6d433;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="star">
+            <div class="jian" id="jian-id">
+                <div class="j1"></div>
+                <div class="j2">嘿,点这!</div>
+            </div>
+            <!-- <input type="text"> -->
+            <div class="title" id="star1">
+                <b>生日开始</b>
+            </div>
+            <div id="guai">
+                <div class="D-star" id="d-star">
+                    <h3>登 录</h3>
+                </div>
+                <div class="input">
+                    <div class="input1">
+                        <div class="text">账号:</div>
+                        <div class="text1">
+                            <input type="text" placeholder="你是谁？" id="z-input1" name="z-input1">
+                        </div>
+                    </div>
+                    <div class="input2">
+                        <div class="text">密码:</div>
+                        <div class="text1">
+                            <input type="text" id="z-input2" placeholder="你密码多少?">
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div id="Star">Star</div>
+                        <div id="End">End</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var op_star = document.getElementById("star1");//跳转页面
+        var oz_input1 = document.getElementById("z-input1");//账号
+        var oz_input2 = document.getElementById("z-input2");//密码
+        var od_star = document.getElementById("d-star");//登录标签
+        var oguai = document.getElementById("guai");//搞怪盒子
+        var Star = document.getElementById("Star");//开始按钮
+        var End = document.getElementById("End");//End按钮
+        var jain_id = document.getElementById("jian-id");
+        var timer = null;
+        sum = 0;
+        sum8 = 0;
+        sum9 = 0;
+        sum2 = 0;
+        sum3 = 0;
+        type1 = 0;
+        zhang = "小巫婆";
+        mi = "17645129975";
+        cars = ["你还点我干啥！", "你有病病啊！", "还点是吧！", "行吧行吧，你还记得你点几次这个按钮吗！"];
+        cars1 = ["账号都不记得吗", "嘿嘿，没错我改账号了", "我给你的备注", "手机号备注"];
+        cars2 = ["当然，密码也改了", "你平时最经常输入的", "仔细想想", "密码可不像账号那么容易就告诉你", "没办法啊提前让你玩过了，这次岂不是轻车熟路", "只好难为下你咯", "这次要是还错就提醒你下吧", "真傻你经常输入的不就是你手机密码吗"];
+        op_star.onclick = function () {
+            window.location.href = "file:///data/user/0/org.mozilla.firefox/cache/contentUri/party.html";
+        }
+
+        Star.onclick = function () {
+            if (sum3 == 4) {
+                if (sum2 == 2) {
+                    alert("你就没尝试下点登陆吗");
+                    jain_id.style.display = "block";
+                    console.log(jain_id.offsetTop);
+                    timer = setInterval(function () {
+                        if (jain_id.offsetTop == 135) {
+                            type1 = 1;
+                            if (type1 == 1) {
+                                od_star.onclick = function () {
+                                    if (oz_input1.value == "小巫婆" && oz_input2.value == "000120") {
+                                        op_star.style.display = "block";
+                                        oguai.style.display = "none";
+                                        jain_id.style.display = "none";
+                                    }
+                                    else if (oz_input1.value != "小巫婆") {
+                                        alert(cars1[sum8]);
+                                        if (sum8 == 3)
+                                            sum8 = 2;
+                                        sum8++;
+                                    }
+                                    if (oz_input1.value == "小巫婆" && oz_input2.value != "000120") {
+                                        alert(cars2[sum9]);
+                                        if (sum9 == 7)
+                                            sum9--;
+                                        sum9++;
+
+                                    }
+                                }
+                            }
+                            clearInterval(timer);
+                        }
+                        else
+                            jain_id.style.top = jain_id.offsetTop - 25 + "px";
+                    }, 12.5)
+                }
+                sum2++;
+                console.log(sum2);
+            }
+            else {
+                if (oz_input1.value == "")
+                    alert("你啥都不填啊！");
+                else if (oz_input2.value == "")
+                    alert("大兄弟，密码呢");
+                else {
+                    if (sum < 3)
+                        alert(cars[sum]);
+                    else {
+                        var type = confirm(cars[sum]);
+                        while (type == false) {
+                            type = confirm("不，你知道!");
+                        }
+                        sum3 = prompt("多少次呢?");
+                        while (sum3 != 4)
+                            sum3 = prompt("你猜猜是不是4次？");
+                        console.log(sum3);
+                        sum = 0;
+                    }
+
+                    sum++;
+                }
+            }
+        }
+        End.onclick = function () {
+            alert("点什么End，点Star！");
+        }
+    </script>
+</body>
+
+</html>

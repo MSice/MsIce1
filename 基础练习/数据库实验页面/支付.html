@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../JQuery/js1/jquery-3.4.1.js"></script>
+    <script src="../JQuery/js1/jquery.qrcode.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* a {
+            text-decoration: none;
+        } */
+
+        body {
+            background-image: url("./img/支付背景.jpg");
+            background-size: cover;
+            font: 14px/1.6 Tahoma, 微软雅黑, 宋体;
+            color: white;
+        }
+
+        .title {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background-color: #424040;
+            color: #d5d5d5;
+        }
+
+        .title .text {
+            width: 990px;
+            margin: 0 auto;
+        }
+        .title .text a{
+            color: #d5d5d5;
+            margin-left: 5px;
+        }
+        .title span {
+            float: right;
+        }
+
+        .box {
+            width: 990px;
+            /* height: 100px; */
+            height: 700px;
+            margin: 0 auto;
+            background-color: rgba(238, 165, 165, 0.4);
+            position: relative;
+        }
+
+        .box .b-title {
+            height: 60px;
+            font-size: 40px;
+            font-family: "FZShuTi";
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            top: 90px;
+            left: 335px;
+        }
+
+        .box .b-bottom {
+            /* display: none; */
+            position: absolute;
+            top: 200px;
+            /* background-color: rgba(241, 188, 188, 0.4); */
+            left: 64.5px;
+        }
+
+        /* --------------left--------------- */
+        .box .b-left {
+            float: left;
+            width: 235px;
+            height: 400px;
+            padding: 25px;
+            border-right: 1px solid rgba(204, 221, 236, 0.5);
+        }
+
+        .b-left li {
+            border-bottom: 1px solid white;
+            margin-top: 20px;
+            font-size: 20px;
+            width: 235px;
+            height: 40px;
+        }
+
+        .b-left li span {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+        }
+
+        /* ----------right-------- */
+        .b-right {
+            float: left;
+            margin-left: 1px;
+        }
+
+        .b-right .br-top {
+            width: 576px;
+            height: 55px;
+            /* padding: 5px; */
+            /* background-color: rgba(111, 223, 117, 0.5); */
+        }
+
+        .b-right .br-top div {
+            font-size: 20px;
+            width: 288px;
+            height: 55px;
+            line-height: 55px;
+            /* border: 1px solid rgba(204, 221, 236, 0.5); */
+            text-align: center;
+            cursor: pointer;
+            float: left;
+        }
+
+        .b-right .br-top .color {
+            background-color: rgba(238, 165, 165, 0.4);
+        }
+
+        .b-right .br-bottom img {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 100px;
+            left: 420px;
+
+        }
+
+        /* -------bottom2---------- */
+        .box .b-bottom1 {
+            display: none;
+            position: absolute;
+            top: 200px;
+            background-color: rgba(241, 188, 188, 0.4);
+            left: 110px;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        tbody {
+            border: 1px solid black;
+        }
+
+        td {
+            font: normal 15px Arial;
+            padding: 2px;
+            width: 185px;
+        }
+
+        th {
+            font: bold 15px Arial;
+            text-align: left;
+            padding: 4px;
+            border-bottom: 1px solid #333;
+            width: 185px;
+        }
+
+        #inp {
+            width: 150px;
+            height: 20px;
+            background-color: rgba(241, 188, 188, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <div class="text">
+            <span>苏琪(20175971) <a href="">退出</a></span>
+        </div>
+    </div>
+    <div class="box">
+        <div class="b-title">
+            感 谢 您 的 支 持 ！
+        </div>
+        <div class="b-bottom" style="border: 1px solid rgba(204, 221, 236, 0.5);">
+            <div class="b-left">
+                <ul>
+                    <li>姓名:<span></span></li>
+                    <li>ID:<span></span></li>
+                    <li>金额:<span id="money1"></span></li>
+                    <li>未处理数:<span></span></li>
+                </ul>
+                <input type="submit" id="inp2"
+                    style="background-color: rgba(241, 188, 188, 0.4);width: 100px; height: 40px; position: absolute; top: 315px; left: 160px;"
+                    value="查看全部记录">
+                   <a href="http://www.baidu.com"><input type="submit" id="inp2"
+                        style="background-color: rgba(241, 188, 188, 0.4);width: 100px; height: 40px; position: absolute; top: 315px; left: 30px;"
+                        value="返回借书"></a>
+            </div>
+            <div class="b-right">
+                <div class="br-top">
+                    <div id="bw">微信支付</div>
+                    <div class="color" id="bz">支付宝支付</div>
+                </div>
+                <div class="br-bottom">
+                    <img src="./img/10.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="b-bottom1">
+            查 询 : <input type="text" id="inp">
+            <table>
+                <thead>
+                    <tr>
+                        <th>违规ID</th>
+                        <th>逾期图书编号</th>
+                        <th>罚款金额</th>
+                        <th>处理情况</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>张山</td>
+                        <td>男</td>
+                        <td>浙江宁波</td>
+                        <td>浙江宁波</td>
+                    </tr>
+                    <tr>
+                        <td>张山</td>
+                        <td>男</td>
+                        <td>浙江宁波</td>
+                        <td>浙江宁波</td>
+                    </tr>
+                    <tr>
+                        <td>张山</td>
+                        <td>男</td>
+                        <td>浙江宁波</td>
+                        <td>浙江宁波</td>
+                    </tr>
+                    <tr>
+                        <td>张山</td>
+                        <td>男</td>
+                        <td>浙江宁波</td>
+                        <td>浙江宁波</td>
+                    </tr>
+                    <tr>
+                        <td>张山</td>
+                        <td>男</td>
+                        <td>浙江宁波</td>
+                        <td>浙江宁波</td>
+                    </tr>
+                    <tr>
+                        <td>张山</td>
+                        <td>男</td>
+                        <td>浙江宁波</td>
+                        <td>浙江宁波</td>
+                    </tr>
+                    <tr>
+                        <td>张山</td>
+                        <td>男</td>
+                        <td>浙江宁波</td>
+                        <td>浙江宁波</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <td colspan=2>合计:</td>
+                        <td><span id="money">男</span></td>
+                        <td><input type="submit" id="inp1"
+                                style="background-color: rgba(241, 188, 188, 0.4);width: 50px;" value="确定"></td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.getElementById("money1").innerHTML = document.getElementById("money").innerHTML;
+        $("#inp1").click(function () {
+            var type = confirm("违规记录确认无误？");
+            if (type) {
+                $(".b-bottom1").css({ display: "none" });
+                $(".b-bottom").css({ display: "block" });
+            }
+        })
+        $("#inp2").click(function () {
+            $(".b-bottom").css({ display: "none" });
+            $(".b-bottom1").css({ display: "block" });
+        })
+        var inputtext = null;
+        $("#inp").keyup(function () {
+            inputtext = $(this).val();
+            $("tbody tr").css({ display: "none" });
+            $("tr:contains(" + inputtext + ")").css({ display: "table-row" });
+        })
+        $("#bw").click(function(){
+            $("#bz").attr("class","color");
+            $("#bw").removeAttr("class");
+            $("img").attr("src","./img/10.png")
+        })
+        $("#bz").click(function(){
+            $("#bw").attr("class","color");
+            $("#bz").removeAttr("class");
+            $("img").attr("src","./img/zz.png")
+        })
+    </script>
+</body>
+
+</html>

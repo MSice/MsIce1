@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=10;
+        console.log(a);
+        alert(a);      
+        //json是字符串对象
+        var obj={
+            name:["xiaoming"]
+
+        }
+        var jsonStr=JSON.stringify(obj);//将对象转换为字符串
+        console.log(jsonStr);
+        
+        var jsonObj=JSON.parse(jsonStr);//将字符串类型转换为对象
+        
+    </script>
+</body>
+</html>

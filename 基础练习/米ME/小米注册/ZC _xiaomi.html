@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米注册</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            /*背景色*/
+            font-size: 14px;
+            font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            width: 854px;
+            height: 500px;
+            padding: 0 34px 30px;
+            margin: 100px auto 0;
+        }
+
+        /*top-logo  star*/
+        .container .top-logo {
+            padding-bottom: 40px;
+        }
+
+        .container .top-logo a {
+            width: 49px;
+            height: 48px;
+            background-image: url("./img/ZC1.png");
+            margin: 0 auto;
+            cursor: default;
+            /*鼠标样式*/
+            display: block;
+            /* padding-bottom: 40px;  */
+        }
+
+        /*top-logo-end*/
+        /*register-info  start*/
+        .container .register-info h4 {
+            font-size: 30px;
+            font-weight: normal;
+            /*文字加粗效果*/
+            text-align: center;
+            /*文字对齐方式*/
+        }
+
+        /*register-info  end*/
+        /*register-form*/
+        .container .register-form {
+            width: 332px;
+            padding: 30px 0;
+            line-height: 30px;
+            margin: 0 auto;
+            /* background-color: red; */
+        }
+
+        .register-form .select-regions .sr-box {
+            height: 40px;
+            padding-left: 14px;
+            line-height: 40px;
+            display: inline-block;
+            border: 1px solid #e8e8e8;
+            color: #555;
+        }
+
+        .register-form .sr-box p {
+            width: 275px;
+            border-right: 1px solid #e8e8e8;
+            float: left;
+        }
+
+        .register-form .sr-box .img1 {
+            width: 16px;
+            height: 16px;
+            display: block;
+            background-image: url("./img/ZC2.png");
+            margin: 11px 12px 0 12px;
+            float: left;
+            cursor: pointer;
+        }
+
+        .register-form h4 {
+            padding-bottom: 5px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .register-form .select-cycode .sc-listwrap {
+            float: left;
+            padding-bottom: 15px;
+        }
+
+        .sc-listwrap .tits i,
+        p {
+            float: left;
+        }
+
+        .select-cycode .tits {
+            width: 54px;
+            text-align: center;
+            padding: 0 9px;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            border: 1px solid #e8e8e8;
+            color: #555;
+            cursor: pointer;
+        }
+
+        /* .tits {
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            border: 1px solid #e8e8e8;
+            color: #555;
+            cursor: pointer;
+
+        } */
+        .register-form .select-cycode,.register-form .sc-input{
+            padding-bottom: 15px;
+        }
+
+        .select-cycode .sc-inputbg {
+            height: 40px;
+            line-height: 40px;
+            margin-left: -1px;
+            display: inline-block;
+            border: 1px solid #e8e8e8;
+        }
+
+        /*register-form*/
+    </style>
+</head>
+
+<body>
+    <!-- <div></div> div相当于一个大的容器-->
+    <div class="container">
+        <div class="top-logo">
+            <a href="javascript:void(0)"></a>
+        </div>
+        <div class="register-info">
+            <h4>注册小米帐号</h4>
+        </div>
+        <div class="register-form">
+            <h4>国家/地区</h4>
+            <div class="select-regions">
+                <div class="sr-box">
+                    <p>中国</p>
+                    <i class="img1"></i>
+                </div>
+            </div>
+            <div class="region_tip">
+                成功注册帐号后，国家/地区将不能被修改
+            </div>
+            <h4>手机号码</h4>
+            <div class="select-cycode">
+                <div class="sc-listwrap">
+                    <div class="tits">
+                        <p>+86</p>
+                        <i>+8</i>
+                    </div>
+                </div>
+                <div class="sc-input">
+                    <div class="sc-inputbg">
+                        <input type="text" placeholder="请输入手机号码">
+                    </div>
+                </div>
+            </div>
+            <div class="submit-btn"></div>
+        </div>
+        <div class="register-msg"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../JQuery/js1/jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-size: 14px;
+            font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+            background-color: rgba(188, 167, 122, 0.3);
+            background-image: url("./img/11.jpg");
+            background-size: cover;
+            color: white;
+        }
+        input{
+            color: white;
+        }
+        .box {
+            width: 1710px;
+            height: 700px;
+            margin: 100px auto 0;
+            /*100px top*/
+            /* background-image: url("./img/8.png"); */
+            background-size: contain;
+            position: relative;
+        }
+
+        /*left---star*/
+        .box .left {
+            padding: 25px 0 0;
+            width: 200px;
+            height: 650px;
+            float: left;
+            /* background-color: rgba(148, 28, 7, 0.678); */
+        }
+
+        .box .left .l-top {
+            padding: 5px;
+            width: 190px;
+            height: 245px;
+            /* background-color: rgba(10, 209, 27, 0.678); */
+        }
+
+        .left .l-top .top-infor {
+            border-bottom: 1px solid white;
+            margin-top: 20px;
+            font-size: 20px;
+            width: 190px;
+            height: 40px;
+            /* background-color: rgba(220, 235, 221, 0.678); */
+        }
+
+        .left .l-bottom {
+            margin: 30px auto 0;
+            width: 180px;
+        }
+
+        .left .l-bottom input {
+            height: 50px;
+            width: 180px;
+            font-size: 30px;
+            font-weight: 2px;
+            font-family: "STXinwei";
+            border-radius: 4px;
+            background-color: rgba(220, 235, 221, 0.678);
+        }
+
+        /*left---end*/
+        /*right---star*/
+        .box .right {
+            position: absolute;
+            top: 40px;
+            left: 256px;
+            width: 1355px;
+            height: 625px;
+            background-color: rgba(233, 218, 216, 0.418);
+        }
+
+        /*---------------------------------------------------------------------------------------------------------------*/
+        /*图书信息右侧--star*/
+        .r-infor {
+            display: block;
+            font-family: "SimHei";
+            font-size: 20px;
+        }
+
+        .r-infor .ri-top {
+            width: 1355px;
+            height: 50px;
+            border-radius: 0 30px 0 10px;
+            border: 1px solid rgba(193, 194, 201, 0.3);
+            /* padding: 10px 0; */
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        .r-infor .ri-top input {
+            width: 180px;
+            height: 50px;
+            font-size: 24px;
+            font-weight: 2px;
+            border: 2px solid rgba(147, 150, 168, 0.3);
+            border-radius: 4px;
+            font-family: "LiSu";
+            background-color: rgba(193, 194, 201, 0.3);
+        }
+
+        .r-infor .ri-bottom {
+            width: 1350px;
+            margin: 0 auto;
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        /*图书信息右侧--end*/
+        /*---------------------------------------------------------------------------------------------------------------*/
+        /*图书借阅右侧---star*/
+        /*top---star*/
+        .r-borrow {
+            display: none;
+        }
+
+        .r-borrow .rb-top {
+            width: 1355px;
+            height: 50px;
+            border-radius: 0 30px 0 10px;
+            border: 1px solid rgba(193, 194, 201, 0.3);
+            /* padding: 10px 0; */
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        .r-borrow .rb-top input {
+            width: 180px;
+            height: 50px;
+            font-size: 24px;
+            font-weight: 2px;
+            border: 2px solid rgba(147, 150, 168, 0.3);
+            border-radius: 4px;
+            font-family: "LiSu";
+            background-color: rgba(193, 194, 201, 0.3);
+        }
+
+        .r-borrow .rb-top input:nth-child(2) {
+            margin-left: 30px;
+        }
+
+        /*bottom---star*/
+
+        #rb-bottom1 {
+            width: 1350px;
+            height: 565px;
+            margin: 0;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        #rb-bottom1 li {
+            width: 266px;
+            height: 50px;
+            line-height: 50px;
+            text-align: left;
+            border-bottom: 2px solid white;
+        }
+
+        #rb-bottom1 .rb-list .ri-span1 {
+            height: 40px;
+            width: 266px;
+            background-color: rgba(211, 138, 138, 0.6);
+            border-top: 2px solid white;
+            font-size: 20px;
+            font-family: "FZYaoti";
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #rb-bottom1 .rb-list {
+            width: 266px;
+            height: 565px;
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+            /* background-color: rgba(255, 255, 255, 0.6); */
+            float: left;
+        }
+
+        .r-borrow .r-borrow1 {
+            display: block;
+            font-family: "SimHei";
+            font-size: 20px;
+        }
+
+        .r-borrow .r-borrow2 {
+            display: none;
+        }
+
+        .r-borrow .rb-bottom {
+            position: relative;
+            width: 900px;
+            height: 560px;
+            margin: 0 auto;
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        .r-borrow .rb-bottom .rbb-title {
+            width: 500px;
+            height: 60px;
+            font-size: 40px;
+            font-family: "FZShuTi";
+            /* background-color: #fff; */
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            top: 65px;
+            left: 200px;
+        }
+
+        .r-borrow .rb-bottom form {
+            position: absolute;
+            top: 200px;
+            left: 150px;
+        }
+
+        .r-borrow .rb-bottom .rbb-input input,
+        .r-borrow .rb-bottom .rbb-input:nth-child(2) {
+            margin-bottom: 45px;
+            width: 600px;
+            height: 50px;
+            padding: 0 15px;
+            border: 3px solid white;
+            font-size: 20px;
+            font-family: "SimHei";
+            background-color: rgba(190, 199, 211, 0.3);
+        }
+
+        .r-borrow .rb-bottom .rbb-btn input {
+            margin-top: 45px;
+            width: 80px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 3px solid white;
+            font-family: "SimHei";
+            font-size: 20px;
+        }
+
+        .r-borrow .rb-bottom .rbb-btn:nth-child(4) {
+            position: absolute;
+            top: 165px;
+            left: 400px;
+        }
+
+        .r-borrow .rb-bottom .rbb-btn:nth-child(3) {
+            position: absolute;
+            top: 165px;
+            left: 120px;
+        }
+
+        /*图书借阅右侧---end*/
+        /*---------------------------------------------------------------------------------------------------------------*/
+        /*图书归还右侧--star*/
+        .r-return {
+            display: none;
+        }
+
+        .r-return .rr-top {
+            width: 1355px;
+            height: 50px;
+            border-radius: 0 30px 0 10px;
+            border: 1px solid rgba(193, 194, 201, 0.3);
+            /* padding: 10px 0; */
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        .r-return .rr-top input {
+            width: 180px;
+            height: 50px;
+            font-size: 24px;
+            font-weight: 2px;
+            border: 2px solid rgba(147, 150, 168, 0.3);
+            border-radius: 4px;
+            font-family: "LiSu";
+            background-color: rgba(193, 194, 201, 0.3);
+        }
+
+        .r-return .rr-bottom {
+            position: relative;
+            width: 900px;
+            height: 560px;
+            margin: 0 auto;
+            /* background-color: rgba(18, 103, 214, 0.678); */
+        }
+
+        .r-return .rr-bottom .rr-title {
+            width: 500px;
+            height: 60px;
+            font-size: 40px;
+            font-family: "FZShuTi";
+            /* background-color: #fff; */
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            top: 65px;
+            left: 200px;
+        }
+
+        .r-return .rr-bottom form {
+            position: absolute;
+            top: 200px;
+            left: 150px;
+        }
+
+        .r-return .rr-bottom .rr-input input {
+            margin-bottom: 45px;
+            width: 600px;
+            height: 50px;
+            padding: 0 15px;
+            border: 3px solid white;
+            font-size: 20px;
+            font-family: "SimHei";
+            background-color: rgba(190, 199, 211, 0.3);
+        }
+
+        .r-return .rr-bottom .rr-btn input {
+            margin-top: 45px;
+            width: 80px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 3px solid white;
+            font-family: "SimHei";
+            font-size: 20px;
+        }
+
+        .r-return .rr-bottom .rr-btn:nth-child(4) {
+            position: absolute;
+            top: 165px;
+            left: 400px;
+        }
+
+        .r-return .rr-bottom .rr-btn:nth-child(3) {
+            position: absolute;
+            top: 165px;
+            left: 120px;
+        }
+
+        /*罚款缴纳--star*/
+        .r-ticket {
+            width: 1350px;
+            height: 625px;
+            position: relative;
+            /* background-color: rgba(18, 103, 214, 0.678); */
+            display: none;
+        }
+
+        .r-ticket .rt-top {
+            height: 60px;
+            font-size: 40px;
+            font-family: "FZShuTi";
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            top: 40px;
+            left: 285px;
+            /* background-color: rgba(214, 41, 18, 0.678); */
+        }
+
+        .r-ticket .rt-bottom {
+            position: absolute;
+            top: 110px;
+            left: 240px;
+            width: 800px;
+            height: 500px;
+            /* background-color: rgba(214, 41, 18, 0.678); */
+        }
+
+        .r-ticket .rt-bottom form {
+            position: absolute;
+            top: 90px;
+            left: 85px;
+        }
+
+        .r-ticket .rt-bottom input {
+            margin-bottom: 45px;
+            width: 600px;
+            height: 50px;
+            padding: 0 15px;
+            border: 3px solid white;
+            font-size: 20px;
+            font-family: "SimHei";
+            background-color: rgba(190, 199, 211, 0.3);
+        }
+
+        .rt-bottom input:nth-child(3) {
+            width: 100px;
+            position: absolute;
+            top: 210px;
+            left: 250px;
+        }
+
+        /*罚款缴纳--end*/
+        /*图书归还右侧--end*/
+        /*right---end*/
+        li::-webkit-scrollbar {
+            display: none
+        }
+
+        #ri-bottom li {
+            height: 40px;
+            width: 223px;
+            text-align: left;
+            overflow: auto;
+            word-wrap: break-word;
+            word-break: break-all;
+            border-bottom: 2px solid white;
+        }
+
+        #ri-bottom .ri-list #ri-span {
+            height: 40px;
+            width: 220px;
+            background-color: rgba(211, 138, 138, 0.6);
+            border-top: 2px solid white;
+            font-size: 20px;
+            font-family: "FZYaoti";
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #ri-bottom .ri-list {
+            width: 220px;
+            height: 565px;
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+            /* background-color: rgba(255, 255, 255, 0.6); */
+            float: left;
+        }
+
+        #box-a {
+            color: white;
+            position: absolute;
+            left: 1600px;
+            top: 10px;
+            border-bottom: 2px solid white;
+        }
+
+        #box-YY {
+            width: 950px;
+            height: 40px;
+            background-color: rgba(245, 223, 181, 0.35);
+            /* display: none; */
+            position: absolute;
+            top: 0;
+            left: 423px;
+            font-size: 20px;
+            line-height: 40px;
+            padding: 0 10px;
+            border-radius: 4px;
+            display: none;
+
+        }
+
+        #box-T {
+            height: 35px;
+            width: 850px;
+            /* line-height: 35px; */
+            font-size: 18px;
+            position: absolute;
+            top: 2px;
+            left: 80px;
+            padding: 0 15px;
+            text-align: left;
+            /* background-color: #fff; */
+        }
+
+        #box-T1 {
+            width: 60px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+            /* background-color: rgba(123, 159, 226, 0.4); */
+        }
+
+        #small {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0);
+            right: 0;
+            top: 0;
+            font-size: 36px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #text1 {
+            position: absolute;
+            top: -50px;
+            left: 965px;
+            width: 350px;
+            height: 45px;
+            font-size: 25px;
+            padding: 0 15px;
+            background-color: #fff;
+        }
+    </style>
+    <meta http-equiv=”Expires” CONTENT=”0″>
+    <meta http-equiv=”Cache-Control” CONTENT=”no-cache”>
+    <meta http-equiv=”Pragma” CONTENT=”no-cache”>
+</head>
+
+<body>
+    <div class="box">
+        <div id="box-YY">
+            <div id="box-T1">提示:</div>
+            <div id="box-T">null</div>
+            <button id="small">×
+            </button>
+        </div>
+        <a href="javascript:void(0)" id="box-a">注销登录</a>
+        <div class="left">
+            <div class="l-top">
+                <div class="top-infor">身份:<span id="sp1">隐藏</span></div>
+                <div class="top-infor">姓名:<span id="sp2">隐藏</span></div>
+                <div class="top-infor">ID:<span id="sp3">隐藏</span></div>
+                <div class="top-infor">ID:<span id="sp3">隐藏</span></div>
+            </div>
+            <div class="l-bottom" id="l-btn1">
+                <input type="submit" value="图书信息">
+            </div>
+            <div class="l-bottom" id="l-btn2">
+                <input type="submit" value="图书借阅">
+            </div>
+            <div class="l-bottom" id="l-btn3">
+                <input type="submit" value="图书归还">
+            </div>
+            <div class="l-bottom" id="l-btn4">
+                <input type="submit" value="违规查询">
+            </div>
+        </div>
+        <div class="right">
+            <!-- 右侧图书信息 -->
+            <div class="r-infor" id="r-infor">
+                <div class="ri-top">
+                    <input type="submit" value="图书信息" id="ri-btn1">
+                </div>
+                <div class="ri-bottom" id="ri-bottom">
+                    <div class="ri-list">
+                        <li id="ri-span">图书编号</li>
+                    </div>
+                    <div class="ri-list">
+                        <li id="ri-span">图书名</li>
+                    </div>
+                    <div class="ri-list">
+                        <li id="ri-span">作者</li>
+                    </div>
+                    <div class="ri-list">
+                        <li id="ri-span">2019-12-13 00:00:00.0</li><br>
+                    </div>
+                    <div class="ri-list">
+                        <ul id="ul1">
+                            <li id="ri-span" class="li1">图书简介</li>
+                            <li>1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+                            </li><br>
+                        </ul>
+                    </div>
+                    <div class="ri-list">
+                        <li id="ri-span">剩余数量</li><br>
+                    </div>
+                </div>
+            </div>
+            <!--右侧图书借阅  -->
+            <div class="r-borrow" id="r-borrow">
+                <div class="rb-top">
+                    <input type="submit" value="借书信息" id="rt-btn1">
+                    <input type="submit" value="借  阅" id="rt-btn2">
+                </div>
+                <div class="r-borrow1" id="r-borrow1">
+                    <div class="rb-bottom" id="rb-bottom1">
+                        <input type="text" id="text1">
+                        <div class="rb-list" id="rb-list1">
+                            <li class="ri-span1">序号</li>
+                            <ul>
+                                <li>b_1002</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                            </ul>
+                        </div>
+                        <div class="rb-list" id="rb-list2">
+                            <li class="ri-span1">图书编号</li>
+                            <ul>
+                                <li>b_1002</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                            </ul>
+                        </div>
+                        <div class="rb-list" id="rb-list3">
+                            <li class="ri-span1">借书时间</li>
+                            <ul>
+                                <li>b_1002</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                            </ul>
+                        </div>
+                        <div class="rb-list" id="rb-list4">
+                            <li class="ri-span1">还书时间</li>
+                            <ul>
+                                <li>b_1002</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                            </ul>
+                        </div>
+                        <!-- <div class="ri-list"><li id="ri-span">图书简介</li><br></div> -->
+                        <div class="rb-list" id="rb-list5">
+                            <li class="ri-span1">是否已还</li>
+                            <ul>
+                                <li>b_1002</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                                <li>b_1003</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="r-borrow2" id="r-borrow2">
+                    <div class="rb-bottom">
+                        <div class="rbb-title">读 书 使 你 受 益 终 生</div>
+                        <form action="javascript:void(0)">
+                            <div class="rbb-input"><input type="text" placeholder="借阅图书ID" id="rb-input1"
+                                    name="rb-input1"></div>
+                            <!-- <div class="rbb-input" id="rb-input2"></div> -->
+                            <div class="rbb-btn"><input type="submit" id="rbb-btn1"></div>
+                            <div class="rbb-btn"><input type="reset"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧图书归还 -->
+            <div class="r-return" id="r-return">
+                <div class="rr-top">
+                    <input type="submit" value="图书归还">
+                </div>
+                <div class="rr-bottom">
+                    <div class="rr-title">记 得 多 读 书 哦</div>
+                    <form action="javascript:void(0)">
+                        <div class="rr-input"><input type="text" placeholder="归还图书ID" id="rr-input1" name="rr-input1">
+                        </div>
+                        <div class="rr-input"><input type="text" placeholder="还书时间(格式:2019-1-1)" id="rr-input2"
+                                name="rr-input2"></div>
+                        <div class="rr-btn"><input type="submit" id="rr-btn1"></div>
+                        <div class="rr-btn"><input type="reset"></div>
+                    </form>
+                </div>
+            </div>
+            <!-- 罚款缴纳 -->
+            <div class="r-ticket" id="r-ticket">
+                <div class="rt-top">
+                    感 谢 您 为 奇 迹 图 书 馆 做 出 的 贡 献
+                </div>
+                <div class="rt-bottom">
+                        <form action="">
+                            <input type="text" name="inp1" placeholder="借阅卡ID">
+                            <input type="text" name="inp2" placeholder="密码">
+                            <input type="submit" value="查询">
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var box_TT = document.getElementById("box-T");//动态提示
+        var small = document.getElementById("small");
+        var type = 1;
+
+        var l_btn1 = document.getElementById("l-btn1");//左侧图书信息-按钮
+        var l_btn2 = document.getElementById("l-btn2");//左侧图书借阅-按钮
+        var l_btn3 = document.getElementById("l-btn3");//左侧图书归还-按钮
+        var l_btn4 = document.getElementById("l-btn4");//左侧罚款缴纳-按钮
+        var sp1 = document.getElementById("sp1");//个人信息-身份
+        var sp2 = document.getElementById("sp2");//个人信息-姓名
+        var sp3 = document.getElementById("sp3");//个人信息-ID
+
+        var r_infor = document.getElementById("r-infor");//右侧图书信息
+        var ri_bottom = document.getElementById("ri-bottom");//右侧图书信息
+
+        var r_borrow = document.getElementById("r-borrow");//右侧图书借阅
+        var rb_input1 = document.getElementById("rb-input1");//右侧借书ID-输入框
+        // var rb_input2 = document.getElementById("rb-input2");//右侧借书ID-输入框?
+        var rt_btn1 = document.getElementById("rt-btn1");//右侧图书借阅-借书信息-按钮
+        var rt_btn2 = document.getElementById("rt-btn2");//右侧图书借阅-借阅-按钮
+        var r_borrow1 = document.getElementById("r-borrow1");//右侧图书借阅-借书信息
+        var rb_bottom1 = document.getElementById("rb-bottom1");//右侧图书借阅-借书信息
+        var r_borrow2 = document.getElementById("r-borrow2");//右侧图书借阅-借阅
+        var rbb_btn1 = document.getElementById("rbb-btn1");//右侧图书借阅-提交借阅
+
+        var r_return = document.getElementById("r-return");//右侧图书归还
+        var rr_btn1 = document.getElementById("rr-btn1");//提交按钮
+        var rr_input1 = document.getElementById("rr-input1");//ID
+        var rr_input2 = document.getElementById("rr-input1");//时间
+
+        var r_ticket = document.getElementById("r-ticket");//右侧罚款缴纳
+        var r_ticket1 = document.getElementById("ticket1");//右侧罚款缴纳-图书ID
+        var r_ticket2 = document.getElementById("ticket2");//右侧罚款缴纳-读者ID
+        var r_ticket3 = document.getElementById("ticket3");//右侧罚款缴纳-罚款金额
+
+        var boxA = document.getElementById("box-a")//注销登录
+
+        console.log(box_TT.offsetLeft);
+        // var timer_T=setInterval(function(){
+        //     if(box_TT.offsetLeft)
+
+        // },16)
+        boxA.onclick = function (e) {
+            e.preventDefault();
+            // window.location.href="file:///E:/weichuang/MsHot/MsIce1/20191013me/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E9%AA%8C%E9%A1%B5%E9%9D%A2/denglu.html";
+
+            window.open("file:///E:/weichuang/MsHot/MsIce1/20191013me/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E9%AA%8C%E9%A1%B5%E9%9D%A2/denglu.html");
+            window.close();
+        }
+
+        l_btn1.onclick = function () {
+            r_infor.style.display = "block";
+            r_borrow.style.display = "none";
+            r_return.style.display = "none";
+            r_ticket.style.display = "none";
+        }
+        l_btn2.onclick = function () {
+            r_infor.style.display = "none";
+            r_borrow.style.display = "block";
+            r_return.style.display = "none";
+            r_ticket.style.display = "none";
+        }
+        l_btn3.onclick = function () {
+            r_infor.style.display = "none";
+            r_borrow.style.display = "none";
+            r_return.style.display = "block";
+            r_ticket.style.display = "none";
+        }
+        l_btn4.onclick = function () {
+            r_infor.style.display = "none";
+            r_borrow.style.display = "none";
+            r_return.style.display = "none";
+            r_ticket.style.display = "block";
+        }
+        rt_btn1.onclick = function () {
+            console.log(r_borrow1.style.display, r_borrow2.style.display);
+            r_borrow1.style.display = "block";
+            r_borrow2.style.display = "none";
+        }
+        rt_btn2.onclick = function () {
+            r_borrow1.style.display = "none";
+            r_borrow2.style.display = "block";
+        }
+
+        rbb_btn1.onclick = function () {
+            if (rb_input1.value == "") {
+                alert("图书ID不能为空");
+                return false;
+            }
+            else {
+                var type = confirm("确认借阅该书");
+                return type;
+            }
+        }
+        rr_btn1.onclick = function () {
+            if (rr_input1.value == "") {
+                alert("图书ID不能为空");
+                return false;
+            }
+            else if (rr_input2.value == "") {
+                alert("日期不能为空");
+                return false;
+            }
+            else {
+                var type = confirm("确认归还该书");
+                return type;
+            }
+        }
+        history.length = 0
+        var box_YY = document.getElementById("box-YY");
+        if (box_TT.innerText != "null")
+            box_YY.style.display = "block";
+        small.onclick = function () {
+            box_YY.style.display = "none";
+
+        }
+
+        console.log(box_YY.innerText);
+        $("#text1").keyup(function () {
+            $(this).val();
+            $("#rb-list1 ul li").css({ display: "none" });
+            $("#rb-list2 ul li").css({ display: "none" });
+            $("#rb-list3 ul li").css({ display: "none" });
+            $("#rb-list4 ul li").css({ display: "none" });
+            $("#rb-list5 ul li").css({ display: "none" });
+            $("#rb-list1 ul li:contains(" + $(this).val() + ")").css({ display: "block" });
+            var nindex = $("#rb-list1 ul li:contains(" + $(this).val() + ")");
+            for (var i = 0; i < $("#rb-list1 ul li:contains(" + $(this).val() + ")").length; i++) {
+                $($("#rb-list2 ul li")[$(nindex[i]).index()]).css({ display: "block" });
+                $($("#rb-list3 ul li")[$(nindex[i]).index()]).css({ display: "block" });
+                $($("#rb-list4 ul li")[$(nindex[i]).index()]).css({ display: "block" });
+                $($("#rb-list5 ul li")[$(nindex[i]).index()]).css({ display: "block" });
+
+            }
+            console.log();
+        })
+    </script>
+</body>
+
+</html>

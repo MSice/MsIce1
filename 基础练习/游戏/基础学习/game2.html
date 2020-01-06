@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+            Your browser does not support the canvas element.
+        </canvas>
+    </div>
+    <!-- 在画布中绘制矩形 -->
+    <!-- <script type="text/javascript">
+    //在画布内定义一个对象，
+        var c = document.getElementById("myCanvas");
+        var cxt = c.getContext("2d");
+        cxt.fillStyle = "#FF0000";
+        cxt.fillRect(0, 0, 150, 75);//fillRect (前两个元素是相对于画布左上角坐标，后两个是长度宽度) rect 矩形
+    </script> -->
+    <!-- <script type="text/javascript">
+// 在画布中绘制直线 通过从开始到结束绘制
+        var c=document.getElementById("myCanvas");
+        var cxt=c.getContext("2d");
+        cxt.moveTo(10,10);//起始点
+        cxt.lineTo(150,50);//终点
+        cxt.lineTo(10,50);//如果在此之前没有定义新的起始点就以上一个终点为开始
+        cxt.stroke();
+        
+        </script> -->
+    <script type="text/javascript">
+
+        var c = document.getElementById("myCanvas");
+        var cxt = c.getContext("2d");
+        cxt.fillStyle = "#FF0000";
+        cxt.beginPath();//当上面有其他对象时，需用到该方法，开始新的路径
+        cxt.arc(70, 18, 15, 0, Math.PI * 2, true);
+        cxt.closePath();
+        cxt.fill();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 300px;
+            border: 1px solid black;
+            margin: 200px auto;
+        }
+
+        .up {
+            height: 50px;
+        }
+
+        .up-text {
+            width: 100px;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            background-color: black;
+            float: left;
+            color: white;
+        }
+
+        .up .activ1 {
+            background-color: #b0b0b0;
+            color: black;
+        }
+
+        .bottom {
+            padding: 20px 10px;
+        }
+
+        .bottom .b-text {
+            display: none;
+        }
+
+        .bottom .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="up">
+            <!-- <li>第一节课</li>
+                <li>第一节课</li>
+                <li>第一节课</li> -->
+            <div class="up-text">第一节课</div>
+            <div class="up-text">第二节课</div>
+            <div class="up-text">第三节课</div>
+        </div>
+        <div class="bottom">
+            <div class="b-text active">
+                <ul>
+                    <li>第一节课</li>
+                    <li>第一节课</li>
+                    <li>第一节课</li>
+                </ul>
+            </div>
+            <div class="b-text">
+                <ul>
+                    <li>第二节课</li>
+                    <li>第二节课</li>
+                </ul>
+            </div>
+            <div class="b-text">
+                <ul>
+                    <li>第三节课</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oup = document.getElementsByClassName("up-text");
+        var obottom = document.getElementsByClassName("b-text");
+        for (var i = 0; i < oup.length; i++) {
+            oup[i].index = i;
+            oup[i].onclick = function () {
+                for (var j = 0; j < oup.length; j++) {
+                    oup[j].classList.remove("activ1");
+                    obottom[j].classList.remove("active");
+                }
+                this.classList.add("activ1");
+                obottom[this.index].classList.add("active");
+            }
+        }
+    </script>
+</body>
+
+</html>

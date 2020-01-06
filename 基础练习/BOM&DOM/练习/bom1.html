@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BOM 浏览器对象模型</title>
+</head>
+
+<body>
+    <script>
+        // prompt()//弹窗输入
+        // confirm()//选择  确定返回TRUE  /反之false
+        // alert()//弹窗提示
+
+        // window//浏览器的一个顶级对象
+
+        //间隔N  秒弹窗
+        // window.setTimeout(function(){第一个参数回调函数},时间（毫秒）)//
+
+        // window.setTimeout(function () { 
+        //     document.write("啦啦啦");
+        // }, 1000)
+        var num = 10;
+        var timer = window.setInterval(function () {
+            document.write(num + "<br>");
+            num--;
+            if (num == 0)
+                clearInterval(timer);//当NUM=0的时候  该函数停下
+        }, 1000)
+
+            // clearInterval
+            // clearTimeout//对应相关的函数
+            //setInterval//重复执行
+            //setTimeout直执行一次
+    </script>
+</body>
+
+</html>

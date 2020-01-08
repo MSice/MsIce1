@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D球体</title>
+    <style>
+        html{
+            background: black;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 300px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: xuanzhuan 5s infinite linear;
+        }
+        @keyframes xuanzhuan {
+            0%{
+                transform: rotateX(0) rotateY(0) ;
+            }
+            100%{
+                transform: rotateX(180deg) rotateY(180deg) ;
+            }
+        }
+        .box>div{
+            width: 100%;
+            height: 100%;
+            border: 2px solid #00b3ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px blueviolet;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+    var box = document.querySelector(".box");
+    var boxChild = box.children;
+    for (let i=0;i<15;i++){
+        box.innerHTML += "<div></div>" ;
+        boxChild[i].style.transform = "rotateY("+ 24*i +"deg)";
+    }
+</script>
+</body>
+</html>
+————————————————
+版权声明：本文为CSDN博主「笑问客从何处来」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Y_one/article/details/101700191

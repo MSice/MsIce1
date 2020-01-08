@@ -14,4 +14,4 @@ http.createServer(function (request, response) {
 // 终端打印如下信息
 console.log('Server running at http://127.0.0.1:8888/');
 
-//安装包npm install 包名var express = require("express");//构建服务器
+//安装包npm install 包名

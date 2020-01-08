@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div2 {
+            margin: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            /* height: 200px; */
+            background-color: #000000;
+            transition:all 1s ease 1S;/*hover 运行的属性  运行时间  运动效果   延迟运行时间*/
+            /* transform: translate(50%,50%);移动相对于自身多少像素  */
+        }
+        .div1:hover{
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div2">
+        <div class="div1">666</div>
+    </div>
+    <script>
+
+
+    </script>
+</body>
+
+</html>

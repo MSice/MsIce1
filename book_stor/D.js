@@ -1,6 +1,6 @@
-var mysql = require('mysql')
+import { createConnection } from 'mysql'
  
-var connection = mysql.createConnection({
+var connection = createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: '123456', // 密码填写你们自己的

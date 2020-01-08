@@ -1,6 +1,6 @@
-var http = require('http');
+import { createServer } from 'http';
 
-http.createServer(function (request, response) {
+createServer(function (request, response) {
 
     // 发送 HTTP 头部 
     // HTTP 状态值: 200 : OK

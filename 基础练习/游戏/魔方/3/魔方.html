@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            perspective: 1000px;
+            background-color: #b0b0b0;
+            /* perspective-origin: top center; */
+        }
+
+        .m1,
+        .m2,
+        .m3,
+        .m4,
+        .m5,
+        .m6,
+        .m7,
+        .m8,
+        .m9 {
+            width: 150px;
+            height: 150px;
+            /* background-color: #b0b0b0; */
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .box-r {
+            transform-style: preserve-3d;
+            width: 450px;
+            height: 450px;
+            transform: rotateY(90deg) rotateX(45deg) rotateZ(45deg);
+            position: fixed;
+            top: 100px;
+            left: 40%;
+        }
+
+        .box {
+            width: 450px;
+            height: 450px;
+            display: flex;
+            flex-wrap: wrap;
+            /* flex-direction: row; */
+            transform-style: preserve-3d;
+            background-color: #fd0000;
+            position: absolute;
+            /* transform: rotateY(90deg); */
+        }
+
+        .m-box {
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            position: absolute;
+            transform: translateZ(-75px);
+            background-color: rgba(253, 61, 61, 0.164);
+        }
+
+        .c2 {
+            transform: translateZ(-150px);
+        }
+
+        .c3 {
+            transform: translateZ(150px);
+        }
+
+        .c2 .m-box {
+            background-color: rgba(150, 238, 128, 0.123);
+        }
+
+        .c3 .m-box {
+            background-color: rgba(236, 238, 128, 0.123);
+        }
+
+        .m-6r {
+            transform: translateZ(75px);
+        }
+
+        .c1 .m-5r,
+        .c3 .m-5r,
+        .c2 .m-5r {
+            background-color: rgba(238, 128, 128, 0.164);
+            transform: rotateX(-90deg) translateZ(-75px);
+        }
+
+        .c1 .m-2r,
+        .c2 .m-2r,
+        .c3 .m-2r {
+            background-color: rgba(128, 176, 238, 0.144);
+            transform: rotateX(90deg) translateZ(-75px);
+        }
+
+        .c1 .m-3r,
+        .c2 .m-3r,
+        .c3 .m-3r {
+            background-color: rgba(255, 255, 255, 0.164);
+            transform: rotateY(-90deg) translateZ(-75px);
+        }
+
+        .c1 .m-4r,
+        .c2 .m-4r,
+        .c3 .m-4r {
+            background-color: rgba(225, 128, 238, 0.144);
+            transform: rotateY(90deg) translateZ(-75px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-r">
+        <!-- 立体旋转 -->
+        <div class="c1 box Z1">
+            <div class="m1">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m2">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m3">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m4">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m5">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m6">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m7">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m8">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m9">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+        </div>
+        <div class="c2 box Z2">
+            <div class="m1">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m2">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m3">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m4">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m5">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m6">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m7">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m8">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m9">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+        </div>
+        <div class="c3 box Z3">
+            <div class="m1">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m2">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m3">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m4">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m5">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m6">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m7">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m8">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+            <div class="m9">
+                <div class="m-1r m-box"></div>
+                <div class="m-2r m-box"></div>
+                <div class="m-3r m-box"></div>
+                <div class="m-4r m-box"></div>
+                <div class="m-5r m-box"></div>
+                <div class="m-6r m-box"></div>
+            </div>
+        </div>
+        <!-- 正面旋转 -->
+        <div class="c1 box X1"></div>
+        <div class="c2 box X2"></div>
+        <div class="c3 box X3"></div>
+        <!-- 纵向旋转 -->
+        <div class="c1 box Y1"></div>
+        <div class="c2 box Y2"></div>
+        <div class="c3 box Y3"></div>
+    </div>
+</body>
+
+</html>

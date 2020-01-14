@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            perspective: 1000px;
+            background-color: #b0b0b0;
+            /* perspective-origin: top center; */
+        }
+
+        /* 魔方整体旋转面 */
+        .box {
+            width: 299px;
+            height: 299px;
+            margin: 200px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            /* border: 1px solid black; */
+            transform: rotateY(90deg) rotateX(45deg) rotateZ(45deg);
+        }
+
+        /* 旋转平面 */
+        .face {
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            position: absolute;
+            background-color: rgba(238, 101, 101, 0.459);
+        }
+
+        /* 旋转平面定位 */
+        .p2,
+        .p5,
+        .p8 {
+            position: absolute;
+            left: 100px;
+        }
+
+        .p3,
+        .p6,
+        .p9 {
+            position: absolute;
+            left: 200px;
+        }
+
+        .p4,
+        .p5,
+        .p6 {
+            position: absolute;
+            top: 100px;
+        }
+
+        .p7,
+        .p8,
+        .p9 {
+            position: absolute;
+            top: 200px;
+        }
+
+        /* 魔方立方体*27*/
+        .f-box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 5%;
+            transform: translateZ(-50px);
+            background-color: rgb(0, 0, 0);
+        }
+
+        /* 魔方中间层-竖 */
+        .f6 {
+            transform: translateZ(50px);
+        }
+
+        .f5 {
+            transform: rotateY(90deg) translateZ(-50px);
+        }
+
+        .f4 {
+            transform: rotateY(-90deg) translateZ(-50px);
+        }
+
+        .f3 {
+            transform: rotateX(90deg) translateZ(-50px);
+        }
+
+        .f2 {
+            transform: rotateX(-90deg) translateZ(-50px);
+        }
+
+        /* 魔方后层-竖 */
+        .h-f1 {
+            transform: translateZ(-150px);
+        }
+
+        .h-f6 {
+            transform: translateZ(-50px);
+        }
+
+        .h-f5 {
+            transform: translateZ(-150px) rotateY(-90deg);
+            /*问题  T  R前后交换顺序T不执行*/
+            transform-origin: left;
+        }
+
+        .h-f4 {
+            transform: translateZ(-150px) rotateY(90deg);
+            transform-origin: right;
+        }
+
+        .h-f3 {
+            transform: translateZ(-150px) rotateX(-90deg);
+            transform-origin: bottom;
+        }
+
+        .h-f2 {
+            transform: translateZ(-150px) rotateX(90deg);
+            transform-origin: top;
+        }
+
+        /*颜色块*/
+        .f-box div {
+            text-align: center;
+            line-height: 96px;
+            width: 94px;
+            height: 94px;
+            margin: 3px;
+            border-radius: 13%;
+        }
+
+        .color6 {
+            background-color: rgb(255, 0, 0, 1);
+        }
+
+        .color5 {
+            background-color: rgb(255, 153, 0);
+        }
+
+        .color4 {
+            background-color: rgb(255, 251, 0);
+        }
+
+        .color3 {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .color2 {
+            background-color: rgb(51, 255, 0);
+        }
+
+        .color1 {
+            background-color: rgb(0, 174, 255);
+        }
+
+        /*旋转角度*/
+
+        .M1,
+        .M10,
+        .M19 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: 150px 150px;
+        }
+
+        .M2,
+        .M11,
+        .M20 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: 50px 150px;
+        }
+
+        .M3,
+        .M12,
+        .M21 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: -50px 150px;
+        }
+
+        .M4,
+        .M13,
+        .M22 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: 150px 50px;
+        }
+
+        .M5,
+        .M14,
+        .M23 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: 50px 50px;
+        }
+
+        .M6,
+        .M15,
+        .M24 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: -50px 50px;
+        }
+
+        .M7,
+        .M16,
+        .M25 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: 150px -50px;
+        }
+
+        .M8,
+        .M17,
+        .M26 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: 50px -50px;
+        }
+
+        .M9,
+        .M18,
+        .M27 {
+            transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+            transform-origin: -50px -50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="M1 face p1">
+            <div class="f-box f1">1</div>
+            <div class="f-box f2">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box f3">3</div>
+            <div class="f-box f4">4</div>
+            <div class="f-box f5">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box f6">6</div>
+        </div>
+        <div class="M2 face p2">
+            <div class="f-box f1">1</div>
+            <div class="f-box f2">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box f4">4</div>
+            <div class="f-box f5">5</div>
+            <div class="f-box f6">6</div>
+        </div>
+        <div class="M3 face p3">
+            <div class="f-box f1">1</div>
+            <div class="f-box f2">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box f3">3</div>
+            <div class="f-box f4">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box f5">5</div>
+            <div class="f-box f6">6</div>
+        </div>
+        <div class="M4 face p4">
+            <div class="f-box f1">1</div>
+            <div class="f-box f2">2</div>
+            <div class="f-box f3">3</div>
+            <div class="f-box f5">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box f6">6</div>
+        </div>
+        <div class="M6 face p6">
+            <div class="f-box f1">1</div>
+            <div class="f-box f2">2</div>
+            <div class="f-box f3">3</div>
+            <div class="f-box f4">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box f6">6</div>
+        </div>
+        <div class="M7 face p7">
+            <div class="f-box f1">1</div>
+            <div class="f-box f2">2</div>
+            <div class="f-box f3">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box f4">4</div>
+            <div class="f-box f5">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box f6">6</div>
+        </div>
+        <div class="M8 face p8">
+            <div class="f-box f1">1</div>
+            <div class="f-box f3">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box f4">4</div>
+            <div class="f-box f5">5</div>
+            <div class="f-box f6">6</div>
+        </div>
+        <div class="M9 face p9">
+            <div class="f-box f1">1</div>
+            <div class="f-box f2">2</div>
+            <div class="f-box f3">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box f4">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box f5">5</div>
+            <div class="f-box f6">6</div>
+        </div>
+
+        <div class="M10 face p1">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box h-f3">3</div>
+            <div class="f-box h-f4">4</div>
+            <div class="f-box h-f5">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M11 face p2">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box h-f3">3</div>
+            <div class="f-box h-f4">4</div>
+            <div class="f-box h-f5">5</div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M12 face p3">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box h-f3">3</div>
+            <div class="f-box h-f4">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box h-f5">5</div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M13 face p4">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">2</div>
+            <div class="f-box h-f3">3</div>
+            <div class="f-box h-f4">4</div>
+            <div class="f-box h-f5">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M14 face p5">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">2</div>
+            <div class="f-box h-f3">3</div>
+            <div class="f-box h-f4">4</div>
+            <div class="f-box h-f5">5</div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M15 face p6">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">2</div>
+            <div class="f-box h-f3">3</div>
+            <div class="f-box h-f4">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box h-f5">5</div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M16 face p7">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">2</div>
+            <div class="f-box h-f3">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box h-f4">4</div>
+            <div class="f-box h-f5">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M17 face p8">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">2</div>
+            <div class="f-box h-f3">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box h-f4">4</div>
+            <div class="f-box h-f5">5</div>
+            <div class="f-box h-f6">6</div>
+        </div>
+        <div class="M18 face p9">
+            <div class="f-box h-f1">
+                <div class="color6">6</div>
+            </div>
+            <div class="f-box h-f2">2</div>
+            <div class="f-box h-f3">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box h-f4">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box h-f5">5</div>
+            <div class="f-box h-f6">6</div>
+        </div>
+
+        <div class="M19 face p1">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">3</div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">4</div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M20 face p2">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">3</div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">4</div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">5</div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M21 face p3">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">
+                <div class="color2">2</div>
+            </div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">3</div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">5</div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M22 face p4">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">2</div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">3</div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">4</div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M23 face p5">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">2</div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">3</div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">4</div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">5</div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M24 face p6">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">2</div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">3</div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">5</div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M25 face p7">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">2</div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">4</div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">
+                <div class="color5">5</div>
+            </div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M26 face p8">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">2</div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">4</div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">5</div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+        <div class="M27 face p9">
+            <div class="f-box f-f1" style="transform: translateZ(150px);">
+                <div class="color1">1</div>
+            </div>
+            <div class="f-box f-f2" style="
+            transform: translateZ(150px) rotateX(-90deg);
+            transform-origin: top;">2</div>
+            <div class="f-box f-f3" style="
+            transform: translateZ(150px) rotateX(90deg);
+            transform-origin: bottom;">
+                <div class="color3">3</div>
+            </div>
+            <div class="f-box f-f4" style="
+            transform: translateZ(150px) rotateY(-90deg);
+            transform-origin: right;">
+                <div class="color4">4</div>
+            </div>
+            <div class="f-box f-f5" style="
+            transform: translateZ(150px) rotateY(90deg);
+            transform-origin: left;">5</div>
+            <div class="f-box f-f6" style="
+            transform: translateZ(50px);">6</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

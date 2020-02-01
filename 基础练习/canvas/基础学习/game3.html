@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #can {
+            background-color: #000000;
+            /* width: 400px;
+            height: 400px; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="myCanvas">
+
+    </canvas>
+    <script>
+        function writeMessage(canvas, message) {
+            var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = '18pt Calibri'; context.fillStyle = 'black';
+            context.fillText(message, 10, 25);
+        }
+
+        function getMousePos(canvas, evt) {
+            //  获得 canvas 位置    
+            var obj = canvas;
+            var top = 0;
+            var left = 0;
+            while (obj && obj.tagName != 'BODY') {
+                top += obj.offsetTop;
+                left += obj.offsetLeft;
+                obj = obj.offsetParent;
+            }
+
+            // 返回鼠标相对位置    
+            var mouseX = evt.clientX - left + window.pageXOffset;
+            var mouseY = evt.clientY - top + window.pageYOffset;
+            return {
+                x: mouseX,
+                y: mouseY
+            };
+        }
+
+        window.onload = function () {
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+
+            canvas.addEventListener('mousedown', function (evt) {
+                this.addEventListener('mousemove', function (evt) {
+                    var mousePos = getMousePos(canvas, evt);
+                    var message = "Mouse position: " + mousePos.x + "," + mousePos.y;
+                    var cxt = canvas.getContext("2d");
+                    cxt.beginPath();//当上面有其他对象时，需用到该方法，开始新的路径
+                    cxt.moveTo(mousePos.x, mousePos.y);//起始点
+                    cxt.lineTo(mousePos.x + 1, mousePos.y + 1);//终点
+                    cxt.stroke();//结束落笔
+                    writeMessage(canvas, message);
+
+                }, false);
+            }, false);
+        };
+
+    </script>
+</body>
+
+</html>

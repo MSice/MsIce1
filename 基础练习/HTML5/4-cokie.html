@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>本地化存储</title>
+</head>
+<body>
+    <button id="add">add</button>
+    <button id="print">print</button>
+    <script>
+        var timer = new Date();
+        timer.setDate(timer.getDate);
+
+        document.cookie="fellow=37;expires="+timer.toUTCString();
+
+        // var num = 0;
+        // var oadd = document.querySelector("#add");
+        // var oprint = document.querySelector("#print");
+        // oadd.onclick=function(){
+        //     num++;
+        // }
+
+    </script>
+
+    
+</body>
+</html>

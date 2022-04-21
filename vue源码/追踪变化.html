@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 通过这个函数只要对象获取属性或者修改属性就会触发
+        function defineReactive(data, key, val) {
+                console.log(data, key, val);
+            Object.defineProperty(data, key, {
+                enumerable: true,
+                configurable: true,
+                get: function () {
+                    console.log(val, 'get');
+                    return val;
+                },
+                set: function (newval) {
+                    console.log(newval, 'set');
+                    console.log(data, 'set');
+                    if (val === newval) {
+                        return
+                    }
+                    val = newval;
+                }
+            })
+        }
+        let obj = {}
+        defineReactive(obj, 'test', 'a');
+        console.log(obj);
+    </script>
+</body>
+</html>

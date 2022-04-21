@@ -1,0 +1,23 @@
+{
+  "name": "craw-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "config-test": "craw -c https://juejin.cn/post/6844903847064764429 ./output/test 3 3 6 ",
+    "run-test": "craw -r"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "craw": "index.js"
+  },
+  "dependencies": {
+    "axios": "^0.22.0",
+    "cheerio": "^1.0.0-rc.10",
+    "commander": "^8.2.0",
+    "dateformat": "^4.5.0",
+    "shelljs": "^0.8.4"
+  }
+}

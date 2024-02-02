@@ -836,3 +836,5 @@
     Error: connect ECONNREFUSED 127.0.0.1:80
 [2021-10-21 18:51:52] http://www.beian.miit.gov.cn
     Error: getaddrinfo ENOTFOUND www.beian.miit.gov.cn
+[2022-06-23 14:46:49] https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/SziGlb8hUU/
+    Error: Request failed with status code 404

@@ -1,1 +1,51 @@
-sdasdas
+<!--
+ * @Author: suqi04
+ * @Date: 2021-07-08 10:23:16
+ * @LastEditTime: 2023-08-02 12:07:22
+ * @LastEditors: suqi04
+ * @FilePath: /baidu/MsIce1/基础练习/HTML/12.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text {
+            
+            margin: 100px auto 40px;
+            text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+        }
+        .number {
+            margin: 15px auto;
+            text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        下班倒计时
+    </div>
+    <div id="time" class="number">
+        5
+    </div>
+    <script>
+        let number = document.getElementById('time')
+        console.log(number);
+        let res = 10
+        let timer = setInterval(() => {
+            if (res === 0) {
+                clearInterval(timer)
+            }
+            number.innerHTML = res--
+        }, 1000)
+    </script>
+</body>
+</html>

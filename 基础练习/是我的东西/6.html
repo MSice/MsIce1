@@ -1,332 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+    #mail-main {
+        font: normal 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        width: 890px;
+        margin: 0 auto;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+    table {
+        width: 890px;
+    }
 
-        li {
-            list-style: none;
-        }
+    tr {
+        width: inherit;
+    }
 
-        a {
-            text-decoration: none;
-        }
+    .last-table {
+        margin-bottom: 30px;
+    }
 
-        body {
-            background-color: #797979;
-        }
+    #mail-wish {
+        font-weight: bold;
+    }
 
-        .box {
-            width: 360px;
-            height: 650px;
-            margin: 0 auto;
-            background-color: rgba(255, 253, 255, 0.6);
-            position: relative;
-            background-size: contain;
-            background-image: url("https://c-ssl.duitang.com/uploads/item/201709/24/20170924233332_QYeFJ.thumb.700_0.jpeg");
-            /* background-image: url("http://m.qpic.cn/psb?/V12qAf613wNwk3/C*0xzHzo31iypfw*rmL3TyOLzsxCzPkLXTdwbFEIKtw!/b/dMMAAAAAAAAA&bo=mAc4BAAAAAADB4E!&rf=viewer_4"); */
-        }
+    .depart {
+        padding: 0 10px;
+        color: #fff;
+    }
 
-        /* ------------------------一 -------------------*/
-        .box1 {
-            /* display: none; */
-        }
+    #redbg {
+        background: red;
+    }
 
-        .box1 .b1-img {
-            position: absolute;
-            top: 120px;
-            left: 85px;
-            width: 190px;
-            height: 190px;
-        }
+    #bluebg {
+        margin-left: -5px;
+        background: blue;
+    }
 
-        .box1 .b1-img img {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 190px;
-            height: 190px;
-            /* overflow: hidden; */
-        }
+    .line {
+        padding: 0 10px;
+    }
 
-        .box1 .btn {
-            width: 95px;
-            height: 40px;
-            font-size: 25px;
-            font-family: "STXinwei";
-            /* text-align: center; */
-            /* border: 2px solid black; */
-            background-color: rgba(212, 203, 203, 0.6);
-            position: absolute;
-            top: 390px;
-            left: 45px;
+    .tabel-title {
+        margin-bottom: 10px;
+        color: #4f6b72;
+        font-weight: bold;
+    }
 
-        }
+    /*表格样式*/
+    .gradientTable {
+        padding: 0;
+        border-spacing: 0px;
+    }
 
-        #b1-img2 {
-            width: 0px;
-            height: 0px;
-        }
+    .gradientTable th {
+        font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        color: #4f6b72;
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        border-top: 1px solid #C1DAD7;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 6px 6px 6px 12px;
+    }
 
-        .box1 .b1-btn2 {
-            left: 205px;
-        }
+    .gradientTable td {
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        font-size: 11px;
+        padding: 6px 6px 6px 12px;
+        color: #4f6b72;
+        white-space: nowrap;
+    }
 
-        .box1-1 {
-            /* display: none; */
-        }
+    .gradientTable td:nth-child(1),
+    .gradientTable th:nth-child(1) {
+        border-left: 1px solid #C1DAD7;
+    }
 
-        /* -------------------box1-2---------------------------------------- */
-        .box1-2 .b1-btn3 {
-            width: 346px;
-            height: 50px;
-            top: 425px;
-            left: 7px;
-            z-index: 2;
-            display: none;
-        }
+    .gradientTable tr:nth-child(odd) {
+        background: #fff;
+    }
 
-        .box1-2 .b12-left {
-            width: 0px;
-            height: 650px;
-            float: left;
-            position: relative;
-            overflow: hidden;
-        }
+    .gradientTable tr:nth-child(even) {
+        background: #F5FAFA;
+    }
 
-        .box1-2 .b12-right {
-            width: 0px;
-            height: 650px;
-            float: right;
-            z-index: 2;
-            overflow: hidden;
-        }
+    .gradientTable tr td:nth-child(1) {
+        width: 12%;
+    }
 
-        .box1-2 img {
-            width: 180px;
-            height: 650px;
-        }
+    .gradientTable tr td.risk {
+        color: red;
+    }
 
-        #img-left {
-            position: absolute;
-            right: 0;
+    .gradientTable tr td.safe {
+        color: green;
+    }
 
-        }
-
-        #img-birthday {
-            width: 200px;
-            height: 200px;
-            display: none;
-            position: absolute;
-            top: 135px;
-            left: 80px;
-            z-index: 1;
-        }
-
-        /* ------------------------二--------------------*/
-    </style>
-</head>
-
-<body>
-    <div class="box" id="box">
-        <!--控制背景图片-->
-        <!-- <a href="sms:1884503049?body=你好，我要预定！"data-role="button" data-theme="a">短信下单</a>  -->
-        <!-- ---------第一次显示----------------------- -->
-        <div class="box1" id="box1">
-            <div class="box1-1" id="box1-1">
-                <div class="b1-img">
-                    <img src="http://m.qpic.cn/psc?/V12qAf613wNwk3/riQ3veziueHEEyvCcu4t052fp6NYqT*ScGKwYuDEHt4UHDMK76uY*HkGXsH.pLdRJ.QP8qpXAkJibhobInlP15CQzysaqtzwY.Lfr05Mvkk!/b&bo=OAQ4BAAAAAADV3I!&rf=viewer_4"
-                        alt="" id="b1-img1"><!-- 问题图片 -->
-                    <img src="http://m.qpic.cn/psb?/V12qAf613wNwk3/4eNhVGdrYnZdBSVBedrjLoqVHQvvt4vMC4AaZOckMnA!/b/dMUAAAAAAAAA&bo=8ADwAAAAAAACFzM!&rf=viewer_4"
-                        alt="" id="b1-img2"><!-- 猫咪动图 -->
-                </div>
-                <input type="button" class="button1 b1-btn1 btn" value="哥哥" id="button1">
-                <input type="button" class="button1 b1-btn2 btn" value="姐姐" id="button2">
-            </div>
-            <!-- ---------第一次end图片----------------------- -->
-            <div class="box1-2" id="box1-2">
-                <img src="http://a1.qpic.cn/psc?/V11N5I8i3LLQLz/7oGfCnAYkfhDJ7AWfNxEMBJituNTq*M1VUjP*bUvpCokbbK*SiIlsMpkqa0Da73JxS5YwIfi7aCwxZ3JcXezSQyruvp.zbYo.5R1au2p1ZI!/c&ek=1&kp=1&pt=0&bo=rgT6A64E.gMRECc!&tl=3&vuin=519752592&tm=1576850400&sce=60-2-2&rf=viewer_311"
-                    alt="" id="img-birthday">
-                <input type="button" class="button1 b1-btn3 btn" value="嘿嘿，好久不见" id="button3">
-                <div class="b12-left" id="b12-left"><img
-                        src="http://m.qpic.cn/psb?/V12qAf613wNwk3/GNTUfXsjgKne4SOh7f7kuDBH*rlcalft0Qt5iBKSVpA!/b/dE0BAAAAAAAA&bo=eADgAQAAAAADB7s!&rf=viewer_4"
-                        alt="" id="img-left"></div>
-                <div class="b12-right" id="b12-right"><img
-                        src="http://m.qpic.cn/psb?/V12qAf613wNwk3/PWZZSHwrCHkwMbTTOZkbYf3rVAV6KriIBV8fpn2rHZA!/b/dL8AAAAAAAAA&bo=eADgAQAAAAADF6s!&rf=viewer_4"
-                        alt="" style="z-index:2;"></div>
+    .span-safe {
+        color: green;
+    }
+    .project-icafeId {
+        text-decoration: none;
+        color: #409eff;
+    }
+</style>
+<div id="mail-main">
+    <div style="background-color: #FFF;width: 100%;">
+        <div class="tabel-title">
+            <p>Hi, all</p>
+            项目 【<a
+                class="project-icafeId"
+                href="https://console.cloud.baidu-int.com/devops/icafe/issue/${}/show?source=drawer-header"
+                target="_blank"
+            >
+                ${}
+            </a>】${reportInfo.projectName} 测试完成， 可上线
+        </div>
+        <table cellspacing="0" cellpadding="0" class="last-table gradientTable">
+            <thead>
+                <tr>
+                    <th colspan="7">项目/迭代基本信息</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>项目/迭代名称</strong></td>
+                    <td colspan="1">
+                        ${}
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>项目负责人</strong></td>
+                    <td colspan="6">
+                        RD: ${} QA: ${}
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>本次升级内容</strong></td>
+                    <td colspan="7">
+                        ${}
+                    </td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th colspan="7">迭代风险和测试说明</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><strong>主要风险说明</strong></td>
+                    <td colspan="7">
+                        ${}
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>延期说明</strong></td>
+                    <td colspan="7">
+                        ${}
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>测试报告(结论)</strong></td>
+                    <td colspan="6">
+                        ${}
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>测试结论</strong></td>
+                    <td colspan="6">
+                        ${}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <div class="tabel-title">
+            温馨提示：请及时关注和解决风险，以确保项目的正常进行~
+        </div> -->
+        <div>
+            <div>Best Regards,</div>
+            <div id="mail-wish">
+                <span>
+                    <span class="depart" id="redbg">Baidu</span>
+                    <span class="depart" id="bluebg">QA</span>
+                </span>
+                <span class="line">|</span>商业平台智能交付平台 商业质量效能部
             </div>
         </div>
-        <!-- ---------第二次显示----------------------- -->
-
-    <!-- ---------js控制----------------------- -->
-    <script>
-            console.log(history.length);
-        var Box = document.getElementById("box");//主页部分  box
-        var Box1 = document.getElementById("box1");
-        var Box2 = document.getElementById("box2");
-        var Box3 = document.getElementById("box3");
-        var btn3 = document.getElementById("button3");//按钮 son
-
-        var b12_left = document.getElementById("b12-left");//左门
-        var b12_right = document.getElementById("b12-right");//右门
-        var img_birthday = document.getElementById("img-birthday");//图片end
-        var sum3 = 0;
-
-        var b3_img4 = document.getElementById("b3-img4");
-        var b3_right = document.getElementById("b3-right");
-        var mmm = document.getElementById("mmm");
-
-        //------------------Star一阶段开始-----------------------
-        function one() {
-            var bi_img1 = document.getElementById("b1-img1");//最开始的问题
-            var bi_img2 = document.getElementById("b1-img2");//第二张图片
-            var btn1 = document.getElementById("button1");//按钮  DAD
-            var btn2 = document.getElementById("button2");//按钮 son
-            var sum = 0;
-            var type = true;
-            var sum1 = 0;
-            var timer = null;
-            //一阶段结束
-            function div1() {
-                var timer1 = setInterval(function () {
-                    if (b12_left.style.width == 180 + "px") {
-                        clearInterval(timer1);
-                        btn3.style.display = "block";
-                        img_birthday.style.display = "block"
-                        bi_img2.style.zIndex = -1;
-                        bi_img1.style.zIndex = -1;
-                    }
-                    else {
-                        b12_left.style.width = sum3 + 5 + "px";
-                        b12_right.style.width = sum3 + 5 + "px";
-                        sum3 += 5;
-                    }
-                }, 60)
-
-            }
-            // div1();
-            // 图片2阶段       
-
-            function star_sum_1(sum) {
-                timer = setInterval(function () {
-                    if (bi_img2.style.width == 190 + "px") {
-                        console.log(111);
-                        clearInterval(timer);
-                        bi_img2.style.zIndex = 0;
-                        bi_img1.style.zIndex = 1;
-                        type = true;
-                        sum1 = 0;
-                        bi_img1.style.width = 0 + "px";
-                        bi_img1.style.height = 0 + "px";
-                        if (sum == 7)
-                            bi_img1.src = "http://m.qpic.cn/psb?/V12qAf613wNwk3/jN7FrOjLjzigHnXphX62xM2sMFZOtP5w4Ktm5lLDiA0!/b/dLYAAAAAAAAA&bo=8ADwAAAAAAARBzA!&rf=viewer_4";
-                        if (sum == 9)
-                            bi_img1.src = "http://m.qpic.cn/psb?/V12qAf613wNwk3/r0t31f5cmJMQrQPVF13vAFWdisS.0bFB2obmh4On2qQ!/b/dLYAAAAAAAAA&bo=8ADwAAAAAAADFzI!&rf=viewer_4";
-                    }
-                    else {
-                        bi_img2.style.width = sum1 + 10 + "px";
-                        bi_img2.style.height = sum1 + 10 + "px";
-                        sum1 += 10;
-                    }
-
-                }, 16)
-            }
-            //图片二阶段
-            function star_sum_2(sum) {
-                timer = setInterval(function () {
-                    if (bi_img1.style.width == 190 + "px") {
-                        console.log(111);
-                        clearInterval(timer);
-                        bi_img2.style.zIndex = 1;
-                        bi_img1.style.zIndex = 0;
-                        type = true;
-                        sum1 = 0;
-                        bi_img2.style.width = 0 + "px";
-                        bi_img2.style.height = 0 + "px";
-                        if (sum == 6)
-                            bi_img2.src = "http://m.qpic.cn/psb?/V12qAf613wNwk3/6sTFn5OOD566X44SURLToPbu.0U7mOs*JjNcMTz4KwU!/b/dMMAAAAAAAAA&bo=8ADwAAAAAAARFyA!&rf=viewer_4";
-                        if (sum == 8)
-                            bi_img2.src = "http://m.qpic.cn/psb?/V12qAf613wNwk3/FA6b1oNEpM5yNCxULfbj5E8pBTaipMBVeya3IccNAe4!/b/dLYAAAAAAAAA&bo=8ADwAAAAAAARFyA!&rf=viewer_4";
-                        if (sum == 10) {
-                            div1();
-                            btn1.style.display = "none";
-                            btn2.style.display = "none";
-                            bi_img2.style.zIndex = 0;
-                            bi_img1.style.zIndex = 2;
-                        }
-                    }
-                    else {
-                        bi_img1.style.width = sum1 + 5 + "px";
-                        bi_img1.style.height = sum1 + 5 + "px";
-                        sum1 += 5;
-                    }
-
-                }, 16)
-            }
-
-            btn1.onclick = function () {//单数在这边
-                if (type) {
-                    type = false;
-                    if (sum > 2 && sum % 2 == 1) {
-                        star_sum_1(sum);
-                        // bi_img1.src = "";
-                    }
-                    if (btn1.value == "哥哥") {
-                        type = true;
-                        alert("惊了惊了不过还是要告诉你叫了哥哥，那我就答应一下吧，继续完成吧，");
-                        return 0;
-                    }
-                    else {
-                        if (sum == 1)
-                            type = true;
-                        btn2.value = "姐姐";
-                        btn1.value = "哥哥";
-                        console.log(btn1.value + "2", btn2.value);
-                    }
-                    sum++;
-                }
-            }
-            btn2.onclick = function () {//双数在这边
-                if (type) {
-                    type = false;
-                    if (sum > 3 && sum % 2 == 0) {
-                        star_sum_2(sum);
-
-                        // bi_img2.src = "";
-                    }
-                    if (btn2.value == "哥哥") {
-                        type = true;
-                        alert("我的天啊，诶诶，在呢在呢，");
-                        return 0;
-                    }
-                    else {
-                        if (sum == 0 || sum == 2)
-                            type = true;
-                        btn2.value = "哥哥";
-                        btn1.value = "姐姐";
-                        console.log(btn1.value + "4", btn2.value);
-                    }
-                    sum++;
-                }
-            }
-            btn3.onclick = function () {
-                Box1.style.display = "none";
-                Box2.style.display = "block";
-            }
-        }
-
-        one();
-        // second();
-        // three();
-    </script>
-</body>
-
-</html>
+    </div>
+</div>

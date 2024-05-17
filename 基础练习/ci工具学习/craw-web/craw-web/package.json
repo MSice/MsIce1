@@ -11,10 +11,6 @@
   "bin": {
     "craw": "index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "ssh://suqi04@icode.baidu.com:8235/baidu_temp/good-coder/craw-web"
-  },
   "author": "suqi04",
   "license": "UNLICENSED",
   "lint-staged": {
